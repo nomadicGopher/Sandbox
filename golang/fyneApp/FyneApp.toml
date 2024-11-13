@@ -1,0 +1,8 @@
+Website = "https://OpenNomad.nomadicGopher.com"
+
+[Details]
+  Icon = "icon.png"
+  Name = "OpenNomad"
+  ID = "com.nomadicGopher.OpenNomad"
+  Version = "1.0.0"
+  Build = 2
