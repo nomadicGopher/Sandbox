@@ -1,0 +1,43 @@
+<form class="position-absolute top-50 start-50 translate-middle">
+	<div class="row">
+		<h2>Complexity</h2>
+		<div class="col">
+			<input id="complexity-easy" type="radio" value="1" name="complexity" aria-label="Easy level of complexity" [(ngModel)]="complexity" (change)="calculate()" checked><br>
+			<label for="complexity-easy" class="form-label">Easy</label>
+		</div>
+		<div class="col">
+			<input id="complexity-moderate" type="radio" value="2" name="complexity" aria-label="Moderate level of complexity" [(ngModel)]="complexity" (change)="calculate()"><br>
+			<label for="complexity-moderate" class="form-label">Moderate</label>
+		</div>
+		<div class="col">
+			<input id="complexity-difficult" type="radio" value="3" name="complexity" aria-label="Difficult level of complexity" [(ngModel)]="complexity" (change)="calculate()"><br>
+			<label for="complexity-difficult" class="form-label">Difficult</label>
+		</div>
+	</div>
+	&nbsp;
+	<div class="row">
+		<h2>Time</h2>
+		<div class="col">
+			<input id="time-day" type="radio" value="1" name="time" aria-label="1 day or less of effort" [(ngModel)]="time" (change)="calculate()" checked><br>
+			<label for="time-day" class="form-label">1 Day or Less</label>
+		</div>
+		<div class="col">
+			<input id="time-week" type="radio" value="2" name="time" aria-label="2 - 5 days of effort" [(ngModel)]="time" (change)="calculate()"><br>
+			<label for="time-week" class="form-label">2-5 Days</label>
+		</div>
+		<div class="col">
+			<input id="time-bi" type="radio" value="4" name="time" aria-label="1 - 2 weeks of effort" [(ngModel)]="time" (change)="calculate()"><br>
+			<label for="time-bi" class="form-label">1-2 Weeks</label>
+		</div>
+		<div class="col">
+			<input id="time-month" type="radio" value="6" name="time" aria-label="2 weeks - 1 month of effort" [(ngModel)]="time" (change)="calculate()"><br>
+			<label for="time-month" class="form-label">2-4 Weeks</label>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col">
+			<a id="total"><span id="value">{{value}}</span> Story Point<span *ngIf="value !== 1">s</span></a><br>
+			<button type="submit" class="invisible">_</button>
+		</div>
+	</div>
+</form>
