@@ -1,5 +1,7 @@
 'use strict';
 
+//..
+
 document.addEventListener('DOMContentLoaded', () => {
-  console.log("Hello, TypeScript!");
+  console.log("TypeScript sandbox loaded");
 });

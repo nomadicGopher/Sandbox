@@ -71,6 +71,8 @@ While linting and formatting are not necessary with IDEs like VS Code + Extensio
     npm install --save-dev prettier
     ```
     When installing dependencies, npm will automatically add the latest version to your package.json. If you need to specify a particular version, you can do so by appending the version number to the package name, like this: `npm install --save-dev typescript@4.0.0`
+
+    * _If dependencies are lready defined you can simply use `npm install` & optionally `npm update` for the latest versions._*
 5. Create a `tsconfig.json` file to configure the TypeScript compiler:
     ```json
     {

@@ -1,7 +1,7 @@
 'use strict';
 
-alert('Hello Jon!');
+//..
 
 document.addEventListener('DOMContentLoaded', () => {
-  console.log('Sandbox loaded');
+  console.log('JavaScript sandbox loaded');
 });
