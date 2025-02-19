@@ -80,7 +80,8 @@ While linting and formatting are not necessary with IDEs like VS Code + Extensio
     ```
     When installing dependencies, npm will automatically add the latest version to your package.json. If you need to specify a particular version, you can do so by appending the version number to the package name, like this: `npm install --save-dev typescript@4.0.0`
 
-    * _If dependencies are already defined you can simply use `npm install` & optionally `npm update` for the latest versions._*
+    _If dependencies are already defined you can simply use `npm install` & optionally `npm update` for the latest versions._*
+    _`npm prune` can be used to clean up node_modules if they are not listed as a core package in `packages.json` or are a dependency of those core packages._
 5. Create a `tsconfig.json` file to configure the TypeScript compiler:
     ```json
     {
@@ -98,5 +99,6 @@ While linting and formatting are not necessary with IDEs like VS Code + Extensio
 ## Usage
 
 1. Write your TypeScript code in `scripts.ts`.
-2. Compile the TypeScript code to JavaScript: `tsc scripts.ts`
+2. Compile the TypeScript code to JavaScript: `npm run build` (alternatively the tsc command can be run independently if desired)
+    * _Leaving the terminal running without using `ctr+c` will watch for code changes and automatically apply them._
 3. Open `index.html` in your browser to see the results.
