@@ -12,4 +12,6 @@ function initWithTsIgnore(localParam) {
 
 document.addEventListener('DOMContentLoaded', () => {  
   initWithTsIgnore(param);
+
+  //..
 });
