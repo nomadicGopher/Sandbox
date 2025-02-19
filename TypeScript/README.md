@@ -24,16 +24,22 @@ While linting and formatting are not necessary with IDEs like VS Code + Extensio
     //"start": "node dist/index.js", // Command to start the application. Can be customized to use tools like nodemon for auto-restart.
     "lint": "eslint 'src/**/*.{ts,tsx}'",
     "lint:fix": "eslint 'src/**/*.{ts,tsx}' --fix",
-    "format": "prettier --write 'src/**/*.{ts,tsx,js,json,md}'"
+    "format": "prettier --write 'src/**/*.{ts,tsx,js,json,md}'",
+    "check-deps": "depcheck"
   },
+  // "dependencies": {
+  //   "packageName": "VERSION"
+  // },
   "devDependencies": {
     "typescript": "^4.0.0",
-    "terser": "^5.0.0",
-    "http-server": "^0.12.3",
+    "depcheck": "^1.4.7",
     "eslint": "^7.0.0",
     "eslint-config-prettier": "^8.0.0",
     "eslint-plugin-prettier": "^4.0.0",
-    "prettier": "^2.0.0"
+    "http-server": "^14.1.1",
+    "prettier": "^2.0.0",
+    "terser": "^5.0.0"
+    //,"@types/packageName": "VERSION" // If package is JS & not TS (doest't include type definitions), the use @types for IDE to recognize the types.
   }
 }
 ```
@@ -70,10 +76,11 @@ While linting and formatting are not necessary with IDEs like VS Code + Extensio
     npm install --save-dev eslint-config-prettier
     npm install --save-dev eslint-plugin-prettier
     npm install --save-dev prettier
+    npm install --save-dev depcheck
     ```
     When installing dependencies, npm will automatically add the latest version to your package.json. If you need to specify a particular version, you can do so by appending the version number to the package name, like this: `npm install --save-dev typescript@4.0.0`
 
-    * _If dependencies are lready defined you can simply use `npm install` & optionally `npm update` for the latest versions._*
+    * _If dependencies are already defined you can simply use `npm install` & optionally `npm update` for the latest versions._*
 5. Create a `tsconfig.json` file to configure the TypeScript compiler:
     ```json
     {
