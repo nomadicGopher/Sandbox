@@ -48,6 +48,7 @@ While linting and formatting are not necessary with IDEs like VS Code + Extensio
     "outDir": "dist", // Output compiled JavaScript files to the dist directory.
     "rootDir": "src", // Root directory for TypeScript source files.
     "strict": true // Enable all strict type-checking options.
+    // "allowJS": true // Allow JS files to exist in the rootDir (src)
   },
   "include": [
     "src/**/*" // Include all TypeScript files in the src directory and subdirectories.
