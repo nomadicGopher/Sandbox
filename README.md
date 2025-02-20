@@ -1,0 +1,1 @@
+Branches are used to track different projects while learning. After completion they will be merged into main in their respective directory structure. 
