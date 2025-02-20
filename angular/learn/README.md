@@ -1,1 +1,12 @@
-[https://angular.dev/tutorials/learn-angular](https://angular.dev/tutorials/learn-angular)
+* [**Docs**](https://angular.dev/overview)
+* [**Playground**](https://angular.dev/playground)
+* [**Tutorials**](https://angular.dev/tutorials)
+  * [Learn Angular in the browser](https://angular.dev/tutorials/learn-angular)
+  * [Build your first app locally](https://angular.dev/tutorials/first-app)
+  * [Deferrable views](https://angular.dev/tutorials/deferrable-views)
+* **References**
+  * [API](https://angular.dev/api)
+  * [CLI](https://angular.dev/cli)
+  * [Errors](https://angular.dev/errors)
+  * [Extended Diagnosis](https://angular.dev/extended-diagnostics)
+  * [Configurations](https://angular.dev/reference/configs/file-structure)
