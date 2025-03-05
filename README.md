@@ -1,1 +1,1 @@
-Branches are used to track different projects while learning. After completion they will be merged into main in their respective directory structure. 
+Branches organize learning projects and exercise platforms (like Exercism, HackerRank, etc.). After learning projects are completed, they will be merged into the main branch, while exercise platforms will remain as independent branches.
