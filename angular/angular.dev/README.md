@@ -1,4 +1,4 @@
-* [**Docs**](https://angular.dev/overview)
+# [angular.dev](https://angular.dev/overview)
 * [**Playground**](https://angular.dev/playground)
 * [**Tutorials**](https://angular.dev/tutorials)
   * [Learn Angular in the browser](https://angular.dev/tutorials/learn-angular)
