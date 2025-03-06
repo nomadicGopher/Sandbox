@@ -1,5 +1,6 @@
 # [Angular For Beginners](https://angular-university.io/lesson/angular-beginners-course-kickoff)
-![Angular Core Deep Dive](https://d3vigmphadbn9b.cloudfront.net/course-images/large-images/angular-core-deep-dive-new-2.jpg)
+
+<img src="https://d3vigmphadbn9b.cloudfront.net/course-images/large-images/angular-core-deep-dive-new-2.jpg" width="50%">
 
 _Uses CSS with no SSR, SCR or router features. This was created manually & not a fork of [https://github.com/angular-university/angular-course](https://github.com/angular-university/angular-course)._
 
