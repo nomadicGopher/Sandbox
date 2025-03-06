@@ -1,9 +1,10 @@
-
-# [Angular For Beginners](https://angular-university.io/lesson/angular-beginners-beginners-course-helicopter-view)
+# [Angular For Beginners](https://angular-university.io/lesson/angular-beginners-course-kickoff)
 
 ##  Angular Core Deep Dive (Video Course)
 
-This repository contains the code of the [Angular Core Deep Dive](https://angular-university.io/course/angular-course) as of **3-5-2024!!!**
+This repository contains the code of the [Angular Core Deep Dive](https://angular-university.io/course/angular-course) **as of 3/6/2025**.
+
+* Directory `angular-course` is using CSS with no SSR, SCR or router features.
 
 This course repository is updated to Angular 19:
 
@@ -161,4 +162,3 @@ If you are looking for the Complete Typescript 2 Course - Build a REST API, the 
 [Github repo for this course](https://github.com/angular-university/complete-typescript-course)
 
 ![Complete Typescript Course](https://angular-academy.s3.amazonaws.com/thumbnails/typescript-2-small.png)
-
