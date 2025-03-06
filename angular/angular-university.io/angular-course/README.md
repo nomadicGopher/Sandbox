@@ -1,4 +1,12 @@
-# AngularCourse
+# [Angular For Beginners](https://angular-university.io/lesson/angular-beginners-course-kickoff)
+![Angular Core Deep Dive](https://d3vigmphadbn9b.cloudfront.net/course-images/large-images/angular-core-deep-dive-new-2.jpg)
+
+_Uses CSS with no SSR, SCR or router features. This was created manually & not a fork of [https://github.com/angular-university/angular-course](https://github.com/angular-university/angular-course)._
+
+1. Ensure node is installed
+2. `npm install -g @angular/cli`
+3. `ng new angular-course` (fresh install. `ng add ...` can be used to add to an existing project.)
+5. `npm start` (runs `ng serve` for a dynamically updated dev environment pointing to [http://localhost:4200](http://localhost:4200))
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.1.
 
