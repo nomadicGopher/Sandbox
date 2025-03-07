@@ -1,3 +1,6 @@
+# Angular Learning
+**/.angular/cache
+
 # Ignore node_modules
 **/node_modules/
 
