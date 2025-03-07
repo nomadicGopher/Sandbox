@@ -1,0 +1,24 @@
+{
+  "name": "sandbox",
+  "version": "1.0.0",
+  "description": "A sandbox project for TypeScript development",
+  "scripts": {
+    "build": "tsc --watch",
+    "minify": "terser dist/**/*.js -o dist --compress --mangle",
+    "start": "http-server -c-1 .",
+    "lint": "eslint 'src/**/*.{ts,tsx}'",
+    "lint:fix": "eslint 'src/**/*.{ts,tsx}' --fix",
+    "format": "prettier --write 'src/**/*.{ts,tsx,js,json,md}'",
+    "check-deps": "depcheck"
+  },
+  "devDependencies": {
+    "typescript": "^4.0.0",
+    "depcheck": "^1.4.7",
+    "eslint": "^7.0.0",
+    "eslint-config-prettier": "^8.0.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "http-server": "^14.1.1",
+    "prettier": "^2.0.0",
+    "terser": "^5.0.0"
+  }
+}
