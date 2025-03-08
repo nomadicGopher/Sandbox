@@ -3,9 +3,11 @@
   "version": "1.0.0",
   "description": "A sandbox project for TypeScript development",
   "scripts": {
-    "build": "tsc --watch",
+    "build": "tsc",
+    "watch": "tsc --watch",
     "minify": "terser dist/**/*.js -o dist --compress --mangle",
-    "start": "http-server -c-1 .",
+    "start": "npm run build && node dist/main.js",
+    "serve": "http-server -c-1 .",
     "lint": "eslint 'src/**/*.{ts,tsx}'",
     "lint:fix": "eslint 'src/**/*.{ts,tsx}' --fix",
     "format": "prettier --write 'src/**/*.{ts,tsx,js,json,md}'",

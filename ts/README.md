@@ -99,6 +99,6 @@ While linting and formatting are not necessary with IDEs like VS Code + Extensio
 ## Usage
 
 1. Write your TypeScript code in `scripts.ts`.
-2. Compile the TypeScript code to JavaScript: `npm run build` (alternatively the tsc command can be run independently if desired)
+2. Compile the TypeScript code to JavaScript: `npm start`
     * _Leaving the terminal running without using `ctr+c` will watch for code changes and automatically apply them._
-3. Open `index.html` in your browser to see the results.
+3. Open localhost:port provided by the server details in the terminal
