@@ -1,18 +1,20 @@
 Branches organize learning projects and exercise platforms (like Exercism, HackerRank, etc.). After learning projects are completed, they will be merged into the main branch, while exercise platforms will remain as independent branches.
 
-* **Next.js**
-  * [create-next-app](https://nextjs.org/docs/app/api-reference/cli/create-next-app)
-  * Fork [next-learn](github.com/vercel/next-learn)
+
+* **React**
+  * [**Recommendations for Creating a React App** (Recommended Full-Stack Frameworks)](https://react.dev/learn/creating-a-react-app)
+      * [**React App from Scratch**](https://react.dev/learn/build-a-react-app-from-scratch)
+      * **Next.js**
+        * [create-next-app](https://nextjs.org/docs/app/api-reference/cli/create-next-app)
+        * Fork [next-learn](github.com/vercel/next-learn)
+      * [**create-react-app - Deprecated!**](https://github.com/facebook/create-react-app)  
+        * [**Docs**](https://create-react-app.dev/docs/getting-started)
 * **React Native**
   * [**React Native Tutorial**](https://reactnative.dev/docs/tutorial)  
       * [React Native Documentation](https://reactnative.dev/docs/intro-react)
   * [**create-react-native-app**](https://github.com/expo/create-react-native-app)
-* **React**
-  * [**Creating a React App** (Recommended Full-Stack Frameworks)](https://react.dev/learn/creating-a-react-app)
-      * [React App from Scratch](https://react.dev/learn/build-a-react-app-from-scratch)
-  * **Deprecated!**
-      * [**Facebook Tutorial** (create-react-app)](https://github.com/facebook/create-react-app)  
-          * [**Docs**](https://create-react-app.dev/docs/getting-started)
+
+## React.js  Sandbox
 ```html
 <!DOCTYPE html>
 <html>
