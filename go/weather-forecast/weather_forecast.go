@@ -10,6 +10,5 @@ var (
 
 // Forecast returns a human readable string pertaining to a specified location's current weather conditions.
 func Forecast(city, condition string) string {
-	CurrentLocation, CurrentCondition = city, condition
-	return CurrentLocation + " - current weather condition: " + CurrentCondition
+	return city + " - current weather condition: " + condition
 }
