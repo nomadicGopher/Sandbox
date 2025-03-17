@@ -2,7 +2,7 @@ package lasagna
 
 const (
 	OvenTime            int = 40
-	PreparationPerLayer     = 2
+	PreparationPerLayer int = 2
 )
 
 // RemainingOvenTime returns the remaining minutes based on the `actual` minutes already in the oven.
