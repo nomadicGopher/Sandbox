@@ -1,1 +1,1 @@
-Branches organize learning projects and exercise platforms (like Exercism, HackerRank, etc.). After learning projects are completed, they will be merged into the main branch, while exercise platforms will remain as independent branches.
+Branches organize learning projects and exercise platforms (like Exercism, HackTheBox, etc.). After learning projects are completed, they will be merged into the main branch, while exercise platforms will remain as independent branches.
