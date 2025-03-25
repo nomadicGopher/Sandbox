@@ -15,7 +15,3 @@ UDP is preferred for applications prioritizing speed and low latency over perfec
 * DHCP (port 67): Dynamic Host Configuration Protocol for issuing IP addresses
 * NTP (port 123): Network Time Protocol
 * VoIP (port 56): Voice over Internet Protocol used for phone conversations
-
-## NMap
-
-* `nmap -sV {target}`  Includes the Service Detection flag to describe custom ports purposes.
