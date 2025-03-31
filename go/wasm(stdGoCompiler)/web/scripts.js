@@ -1,17 +1,9 @@
 'use strict';
 
-let wasm;
 const go = new Go();
-
-function setEventListeners() {
-  document.addEventListener("DOMContentLoaded", function () {
-    
-  });
-}
 
 function init(wasmObj) {
   go.run(wasmObj.instance);
-  setEventListeners();
 }
 
 if ('instantiateStreaming' in WebAssembly) {
