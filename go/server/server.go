@@ -8,26 +8,31 @@ import (
 	"os"
 )
 
-var port int
+var (
+	port int
+	root string
+)
 
 func init() {
-	flag.IntVar(&port, "port", 8080, "port to serve on")
+	flag.IntVar(&port, "port", 8080, "Port to serve on")
+	flag.StringVar(&root, "root", "", "Directory to serve files from (default: current working directory)")
 	flag.Parse()
 }
 
 func main() {
-	// Get the current working directory
-	dir, err := os.Getwd()
-	if err != nil {
-		fmt.Println("Error getting current directory:", err)
-		return
+	if root == "" {
+		var err error
+		root, err = os.Getwd()
+		if err != nil {
+			fmt.Println("Error getting current directory:", err)
+			return
+		}
 	}
 
-	// Serve static files from the current directory
-	fs := http.FileServer(http.Dir(dir))
+	fs := http.FileServer(http.Dir(root))
 	http.Handle("/", fs)
 
-	fmt.Printf("Starting server on :%d\n", port)
+	fmt.Printf("Serving files from %s on :%d\n", root, port)
 	if err := http.ListenAndServe(fmt.Sprintf(":%d", port), nil); err != nil {
 		fmt.Println("Error starting server:", err)
 	}
