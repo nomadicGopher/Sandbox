@@ -2,7 +2,8 @@
 
 This is a minimal TypeScript sandbox environment for learning purposes.
 
-## Setup
+## Setup (from scratch)
+If you are not starting from scratch (using this repo), jump to the **Usage** section.
 
 1. Ensure you have Node.js installed. You can download it from [nodejs.org](https://nodejs.org).
 2. Initialize a new npm project: `npm init -y`
@@ -20,28 +21,28 @@ This is a minimal TypeScript sandbox environment for learning purposes.
         "build": "npm run clean && tsc",
         "dev": "npm run clean && tsc --watch",
         "test": "http-server -c-1 .",
-        "minify": "terser dist/**/*.js -o dist --compress --mangle",
-        "lint": "eslint 'src/**/*.{ts,tsx}'",
-        "lint:fix": "eslint 'src/**/*.{ts,tsx}' --fix",
-        "format": "prettier --write 'src/**/*.{ts,tsx,js,json,md}'",
-        "check-deps": "depcheck",
-        "test": "jest",
-        "test:watch": "jest --watch",
-        "test:coverage": "jest --coverage",
-        "docs": "jsdoc -c jsdoc.json"
+        //"minify": "terser dist/**/*.js -o dist --compress --mangle",
+        //"lint": "eslint 'src/**/*.{ts,tsx}'",
+        //"lint:fix": "eslint 'src/**/*.{ts,tsx}' --fix",
+        //"format": "prettier --write 'src/**/*.{ts,tsx,js,json,md}'",
+        //"check-deps": "depcheck",
+        //"test": "jest",
+        //"test:watch": "jest --watch",
+        //"test:coverage": "jest --coverage",
+        //"docs": "jsdoc -c jsdoc.json"
       },
       "devDependencies": {
         //,"@types/packageName": "VERSION", // If package is JS & not TS (doest't include type definitions), the use @types for IDE to recognize the types.
         "typescript": "^5.8.2",
-        "eslint": "^9.22.0",
         "http-server": "^14.1.1",
-        "depcheck": "^1.4.7",
-        "eslint-config-prettier": "^10.1.1",
-        "eslint-plugin-prettier": "^5.2.3",
-        "prettier": "^3.5.3",
-        "terser": "^5.39.0",
-        "jest": "^29.7.0",
-        "jsdoc": "^4.0.4"
+        //"eslint": "^9.22.0",
+        //"depcheck": "^1.4.7",
+        //"eslint-config-prettier": "^10.1.1",
+        //"eslint-plugin-prettier": "^5.2.3",
+        //"prettier": "^3.5.3",
+        //terser": "^5.39.0",
+        //"jest": "^29.7.0",
+        //"jsdoc": "^4.0.4"
       }
     }
     ```
@@ -69,7 +70,6 @@ This is a minimal TypeScript sandbox environment for learning purposes.
 
     ```sh
     npm install --save-dev typescript
-    npm install --save-dev eslint
     npm install --save-dev http-server
     ```
 
@@ -81,8 +81,8 @@ This is a minimal TypeScript sandbox environment for learning purposes.
 ## Usage
 
 1. Write your TypeScript code in `main.ts`.
-2. Compile the TypeScript code to JavaScript: `npm `
-3. Open localhost:port provided by the server details in the terminal
+2. Compile the TypeScript code to JavaScript: `npm run build` or `npm run dev` if you are developing and want the outputs to be updates as you save your ts files.
+3. When ready to test, run `npm run test` & then access the browser using the URL path returned in the terminal.
 
 ## Notes
 
