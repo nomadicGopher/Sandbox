@@ -6,6 +6,7 @@ import (
 	"flag"
 	"fmt"
 	"html/template"
+	"log"
 	"net/http"
 	"os"
 	"strconv"
@@ -15,17 +16,13 @@ type Window struct {
 	PageTitle string
 }
 
-func convertPortsToStrings(httpsPort *uint, httpPort *uint) (httpsPortStr string, httpPortStr string) {
-	httpsPortStr = strconv.Itoa(int(*httpsPort))
-	httpPortStr = strconv.Itoa(int(*httpPort))
-	return
-}
-
 func setHandlers() {
 	http.HandleFunc("/", func(responseWriter http.ResponseWriter, request *http.Request) {
 		windowData := Window{PageTitle: "Hello World with Go and HTMX"}
 		index := template.Must(template.ParseFiles("./index.html"))
-		index.Execute(responseWriter, windowData)
+		if err := index.Execute(responseWriter, windowData); err != nil {
+			http.Error(responseWriter, "Error rendering template", http.StatusInternalServerError)
+		}
 	})
 
 	http.HandleFunc("/update", func(responseWriter http.ResponseWriter, request *http.Request) {
@@ -37,6 +34,26 @@ func setHandlers() {
 		}
 		responseWriter.Write(updateContent)
 	})
+}
+
+func convertPortsToStrings(httpsPort *uint, httpPort *uint) (httpsPortStr string, httpPortStr string) {
+	httpsPortStr = strconv.Itoa(int(*httpsPort))
+	httpPortStr = strconv.Itoa(int(*httpPort))
+	return
+}
+
+func startServer(ssl bool, httpsPortStr, httpPortStr, certFile, keyFile string) {
+	if ssl {
+		fmt.Println("HTTPS server starting at https://localhost:" + httpsPortStr)
+		if err := http.ListenAndServeTLS(":"+httpsPortStr, certFile, keyFile, nil); err != nil {
+			log.Fatalf("Error starting HTTPS server: %v", err)
+		}
+	} else {
+		fmt.Println("HTTP server starting at http://localhost:" + httpPortStr)
+		if err := http.ListenAndServe(":"+httpPortStr, nil); err != nil {
+			log.Fatalf("Error starting HTTP server: %v", err)
+		}
+	}
 }
 
 func main() {
@@ -51,17 +68,5 @@ func main() {
 
 	httpsPortStr, httpPortStr := convertPortsToStrings(httpsPort, httpPort)
 
-	if *ssl {
-		fmt.Println("HTTPS server starting at http://localhost:", httpsPortStr)
-		err := http.ListenAndServeTLS(":"+httpsPortStr, *certFile, *keyFile, nil)
-		if err != nil {
-			fmt.Println("Error starting HTTPS server:", err)
-		}
-	} else {
-		fmt.Println("HTTP server starting at http://localhost:", httpPortStr)
-		err := http.ListenAndServe(":"+httpPortStr, nil)
-		if err != nil {
-			fmt.Println("Error starting HTTP server:", err)
-		}
-	}
+	startServer(*ssl, httpsPortStr, httpPortStr, *certFile, *keyFile)
 }
