@@ -60,8 +60,8 @@ func main() {
 	ssl := flag.Bool("ssl", false, "Enable/disable SSL layer for the server.")
 	certFile := flag.String("cert", "server.crt", "Path to the SSL certificate file.")
 	keyFile := flag.String("key", "server.key", "Path to the SSL key file.")
-	httpsPort := flag.Uint("https", 443, "Port to serve over for HTTPS server.")
-	httpPort := flag.Uint("http", 80, "Port to serve over for HTTP server.")
+	httpsPort := flag.Uint("https", 8443, "Port to serve over for HTTPS server.")
+	httpPort := flag.Uint("http", 8080, "Port to serve over for HTTP server.")
 	flag.Parse()
 
 	setHandlers()
