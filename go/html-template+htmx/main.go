@@ -32,7 +32,10 @@ func setHandlers() {
 			http.Error(responseWriter, "Unable to read "+updateFilePath, http.StatusInternalServerError)
 			return
 		}
-		responseWriter.Write(updateContent)
+		_, err = responseWriter.Write(updateContent)
+		if err != nil {
+			log.Fatalf("Error writing var(updateContent) to the server: %v", err)
+		}
 	})
 }
 
