@@ -12,6 +12,13 @@ log() {
     echo "[$level] $message" | tee -a $LOG_FILE
 }
 
+# Function to log end of build process
+log_end_of_build() {
+    echo "====================================================================================================" | tee -a $LOG_FILE
+    echo "Build process ended at: $(date)" | tee -a $LOG_FILE
+    echo "====================================================================================================" | tee -a $LOG_FILE
+}
+
 # Initialize log file
 touch $LOG_FILE 2>&1 | tee /dev/stderr
 
@@ -59,7 +66,8 @@ if [ ! -f $WASM_EXEC_JS ]; then
     # Check if go ... wasm_exec.js exists
     if [ ! -f "$WASM_EXEC_PATH" ]; then
         log "ERROR" "wasm_exec.js not found at expected location: $DISPLAY_WASM_EXEC_PATH"
-        return 1
+        log_end_of_build
+        exit
     fi
     
     cp "$WASM_EXEC_PATH" web/ 2>&1 | tee -a $LOG_FILE >&2
@@ -69,7 +77,5 @@ else
 fi
 
 # Log end of build process
-echo "====================================================================================================" | tee -a $LOG_FILE
-echo "Build process ended at: $(date)" | tee -a $LOG_FILE
-echo "====================================================================================================" | tee -a $LOG_FILE
+log_end_of_build
 exit
