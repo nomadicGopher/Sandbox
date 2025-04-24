@@ -7,7 +7,7 @@
       "presentation": {
         "reveal": "never",
       },
-      "command": "${workspaceFolder:DirectCMS}/build.sh",
+      "command": "${workspaceFolder:src/github.com/nomadicGopher/Sandbox/go/wasm(GOOS=JS)}/build.sh",
     }
   ]
 }

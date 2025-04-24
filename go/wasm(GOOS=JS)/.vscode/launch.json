@@ -7,7 +7,7 @@
       "request": "launch",
       "preLaunchTask": "wasm",
       "url": "http://localhost:8080/index.html",
-      "webRoot": "${workspaceFolder:DirectCMS}/web",
+      "webRoot": "${workspaceFolder:src/github.com/nomadicGopher/Sandbox/go/wasm(GOOS=JS)}/web",
       "runtimeArgs": [
         "--enable-features=NetworkService,NetworkServiceInProcess"
       ]

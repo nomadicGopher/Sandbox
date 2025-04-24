@@ -8,7 +8,7 @@
       "request": "launch",
       "preLaunchTask": "wasm",
       "mode": "debug",
-      "program": "${workspaceFolder:DirectCMS}/main.go",
+      "program": "${workspaceFolder:src/github.com/nomadicGopher/Sandbox/go/wasm(GOOS=JS)}/main.go",
       "hideSystemGoroutines": true
       //"args": [
         //""
