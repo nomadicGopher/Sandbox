@@ -1,0 +1,101 @@
+// ☕ ⚡ 🐛
+{
+  "folders": [
+    {
+      "name": "Workspace",
+      "path": "../"
+    }
+  ],
+  "settings": {
+    "[css]": {
+      "editor.defaultFormatter": "vscode.css-language-features"
+    },
+    "debug.onTaskErrors": "debugAnyway",
+    "diffEditor.codeLens": true,
+    "diffEditor.ignoreTrimWhitespace": false,
+    "diffEditor.renderIndicators": true,
+    "diffEditor.renderMarginRevertIcon": true,
+    "diffEditor.renderSideBySide": true,
+    "diffEditor.hideUnchangedRegions.enabled": false,
+    "diffEditor.experimental.showEmptyDecorations": false,
+    "diffEditor.experimental.showMoves": false,
+    "editor.guides.bracketPairs": true,
+    "editor.minimap.enabled": false,
+    "editor.tabSize": 2,
+    "explorer.confirmDragAndDrop": false,
+    "explorer.confirmDelete": false,
+    "explorer.confirmPasteNative": false,
+    "extensions.ignoreRecommendations": true,
+    "files.associations": {
+      "*.bak": "plaintext"
+    },
+    "files.eol": "\n",
+    "git.autofetch": true,
+    "git.enableSmartCommit": true,
+    "git.confirmSync": false,
+    "git.openRepositoryInParentFolders": "always",
+    "github.copilot.editor.enableAutoCompletions": false,
+    "github.copilot.editor.enableCodeActions": false,
+    "githubPullRequests.createOnPublishBranch": "never",
+    "githubPullRequests.pullBranch": "always",
+    "go.toolsManagement.autoUpdate": false,
+    "go.toolsManagement.checkForUpdates": "off",
+    // "go.toolsEnvVars": {
+    //   "GOARCH": "wasm",
+    //   "GOOS": "js"
+    // },
+    "gopls": {
+      "formatting.gofumpt": true,
+      "ui.diagnostic.analyses": {
+        "unusedvariable": true,
+        "unusedwrite": true,
+        "useany": true
+      },
+      "ui.semanticTokens": true,
+      "verboseOutput": true
+    },
+    "html.autoCreateQuotes": false,
+    "[html]": {
+      "editor.defaultFormatter": "vscode.html-language-features"
+    },
+    "[javascript]": {
+      "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "[json][jsonc]": {
+      "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "redhat.telemetry.enabled": false,
+    //"css.validate": false, // Disable for Stylelint
+    //"less.validate": false, // Disable for Stylelint
+    //"scss.validate": false, // Disable for Stylelint
+    // "sqltools.connections": [
+    //   {
+    //     "server": "",
+    //     "port": ,
+    //     "driver": "",
+    //     "group": "",
+    //     "name": "",
+    //     "database": "",
+    //     "username": "",
+    //     "password": "!"
+    //   }
+    // ],
+    "sqltools.defaultExportType": "csv",
+    "sqltools.csvExport.delimiter": "|",
+    "sqltools.format": {
+      "reservedWordCase": "upper"
+    },
+    "terminal.integrated.defaultProfile.windows": "Git Bash",
+    "terminal.integrated.enableMultiLinePasteWarning": "never",
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "window.zoomLevel": 0.0,
+    "workbench.preferredDarkColorTheme": "Solana Beach '22",
+    "workbench.preferredLightColorTheme": "Quiet Light",
+    "solanabeach22.brightness": 1.0,
+    "workbench.startupEditor": "none",
+    "xml.symbols.maxItemsComputed": 0,
+    "xml.server.vmargs": "-Xmx1G -XX:+UseG1GC -XX:+UseStringDeduplication",
+    "workbench.panel.showLabels": true
+  }
+}
