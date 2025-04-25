@@ -1,8 +1,0 @@
-# TypeScript declaration files
-*.d.ts
-
-# TypeScript cache
-*.tsbuildinfo
-
-# Log files
-*.log

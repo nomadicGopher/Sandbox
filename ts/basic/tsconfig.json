@@ -4,9 +4,6 @@
     "module": "es6",
     "strict": true,
     "rootDir": "ts",
-    "outDir": "js",
-  },
-  "include": [
-    "ts/**/*"
-  ]
+    "outDir": "js"
+  }
 }
