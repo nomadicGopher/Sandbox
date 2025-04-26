@@ -2,62 +2,63 @@
 {
   "folders": [
     {
-      "name": "Workspace",
-      "path": "../"
-    }
+			"name": ".vscode",
+			"path": "."
+		}
   ],
   "settings": {
     "[css]": {
       "editor.defaultFormatter": "vscode.css-language-features"
     },
-    "debug.onTaskErrors": "debugAnyway",
+    // "css.validate": false, // Disable for Stylelint
     "diffEditor.codeLens": true,
-    "diffEditor.ignoreTrimWhitespace": false,
-    "diffEditor.renderIndicators": true,
-    "diffEditor.renderMarginRevertIcon": true,
-    "diffEditor.renderSideBySide": true,
-    "diffEditor.hideUnchangedRegions.enabled": false,
     "diffEditor.experimental.showEmptyDecorations": false,
-    "diffEditor.experimental.showMoves": false,
+    // "doki.background.path": "",
+    // "doki.sticker.path": "",
+		// "doki.wallpaper.path": "",
+    "editor.autoClosingQuotes": "never",
+    "editor.codeActionsOnSave": {
+			"source.organizeImports": "always",
+			"source.addMissingImports": "always"
+		},
     "editor.guides.bracketPairs": true,
     "editor.minimap.enabled": false,
-    "editor.tabSize": 2,
-    "explorer.confirmDragAndDrop": false,
+    // "eslint.nodePath": "C:\\Users\\$USER\\AppData\\Roaming\\npm\\node_modules",
+		// "eslint.options": {
+		// 	"useEslintrc": false
+		// },
     "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false,
     "explorer.confirmPasteNative": false,
     "extensions.ignoreRecommendations": true,
     "files.associations": {
       "*.bak": "plaintext"
     },
     "files.eol": "\n",
-    "git.autofetch": true,
-    "git.enableSmartCommit": true,
+		"git.autofetch": "all",
     "git.confirmSync": false,
+    "git.enableSmartCommit": true,
     "git.openRepositoryInParentFolders": "always",
     "github.copilot.editor.enableAutoCompletions": false,
     "github.copilot.editor.enableCodeActions": false,
     "githubPullRequests.createOnPublishBranch": "never",
     "githubPullRequests.pullBranch": "always",
-    "go.toolsManagement.autoUpdate": false,
-    "go.toolsManagement.checkForUpdates": "off",
     // "go.toolsEnvVars": {
     //   "GOARCH": "wasm",
     //   "GOOS": "js"
     // },
+    "go.toolsManagement.autoUpdate": false,
+    "go.toolsManagement.checkForUpdates": "off",
     "gopls": {
       "formatting.gofumpt": true,
-      "ui.diagnostic.analyses": {
-        "unusedvariable": true,
-        "unusedwrite": true,
-        "useany": true
-      },
+      "ui.completion.usePlaceholders": true,
       "ui.semanticTokens": true,
       "verboseOutput": true
     },
-    "html.autoCreateQuotes": false,
     "[html]": {
-      "editor.defaultFormatter": "vscode.html-language-features"
-    },
+      		"editor.defaultFormatter": "vscode.html-language-features"
+    	},
+    "html.autoCreateQuotes": false,
     "[javascript]": {
       "editor.defaultFormatter": "vscode.typescript-language-features"
     },
@@ -65,10 +66,10 @@
     "[json][jsonc]": {
       "editor.defaultFormatter": "vscode.json-language-features"
     },
+    // "less.validate": false, // Disable for Stylelint
     "redhat.telemetry.enabled": false,
-    //"css.validate": false, // Disable for Stylelint
-    //"less.validate": false, // Disable for Stylelint
-    //"scss.validate": false, // Disable for Stylelint
+    // "scss.validate": false, // Disable for Stylelint
+    "solanabeach22.brightness": 1.0,
     // "sqltools.connections": [
     //   {
     //     "server": "",
@@ -81,8 +82,8 @@
     //     "password": "!"
     //   }
     // ],
-    "sqltools.defaultExportType": "csv",
     "sqltools.csvExport.delimiter": "|",
+    "sqltools.defaultExportType": "csv",
     "sqltools.format": {
       "reservedWordCase": "upper"
     },
@@ -90,12 +91,10 @@
     "terminal.integrated.enableMultiLinePasteWarning": "never",
     "typescript.updateImportsOnFileMove.enabled": "always",
     "window.zoomLevel": 0.0,
-    "workbench.preferredDarkColorTheme": "Solana Beach '22",
-    "workbench.preferredLightColorTheme": "Quiet Light",
-    "solanabeach22.brightness": 1.0,
+    "workbench.preferredDarkColorTheme": "Solana Beach '22", // "Solana Beach '22" or "Solarized Dark"
+    "workbench.preferredLightColorTheme": "Quiet Light", // "Quiet Light" or "Solarized Light"
     "workbench.startupEditor": "none",
-    "xml.symbols.maxItemsComputed": 0,
     "xml.server.vmargs": "-Xmx1G -XX:+UseG1GC -XX:+UseStringDeduplication",
-    "workbench.panel.showLabels": true
+    "xml.symbols.maxItemsComputed": 0
   }
 }
