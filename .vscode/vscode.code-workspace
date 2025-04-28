@@ -9,16 +9,16 @@
 	"settings": {
 		"background.fullscreen": {
 			"images": [
-				"file:///E:/My%20Documents/image.png"
+				"file:///E:/My%20Drive/media/vsCode/background.png"
 			]
 		},
 		"background.editor": {
 			"style": {
 				"useFront": false,
-				"opacity": 0.15
+				"opacity": 0.45
 			},
 			"images": [
-				"file:///E:/My%20Documents/image.gif"
+				"file:///E:/My%20Drive/media/vsCode/dancing-gopher.gif"
 			]
 		},
 		"[css]": {
