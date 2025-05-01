@@ -1,16 +1,26 @@
-The following tasks are organized by directory structure.
+**Legend**<!--🟠🔵-->  
+🔴 Not Started / Researching  
+🟡 In Progress  
+🟢 Complete
 
 ## Basic Learning Projects
-* go
-  * [x] html-template+htmx
-  * [x] httpServer
-  * [ ] RabbitMQ ( _Docker Setup_ )
-  * [ ] REST_API ( _Research_ )
-  * [x] wasm
-* ts
-  * [x] basic
+* **go**
+  * **data-sources**
+    * 🔴 RabbitMQ
+    * 🔴 Redis
+    * 🔴 sqlite
+  * **libraries**
+    * 🟢 html-template+htmx
+    * 🟢 wasm
+  * **protocols**
+      * 🔴 GraphQL
+      * 🔴 gRPC
+      * 🟡 REST_API
+  * 🟢 server
+* **ts**
+  * 🟢 basic
 
 ## Ongoing Learning Platforms
 * Exercism
 * HackTheBox
-* ts / angular / angular-university.io
+* **ts / angular /** angular-university.io
