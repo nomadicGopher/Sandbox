@@ -3,6 +3,10 @@ In this folder you will find exercises from the Exercism Go learning track. Each
 * [How to learn Go](https://exercism.org/docs/tracks/go/learning)
 * [Useful Go resources](https://exercism.org/docs/tracks/go/resources)
 
+**Legend**<!--🔴🟠🔵-->  
+🟠 In Progress  
+🟢 Complete
+
 ## Exercises By Topic
 
 * 🟢 hello-world (tutorial)
