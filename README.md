@@ -15,7 +15,7 @@
   * **protocols**
       * 🔴 GraphQL
       * 🔴 gRPC
-      * 🟡 REST_API
+      * 🔴 REST_API
   * 🟢 server
 * **ts**
   * 🟢 basic
