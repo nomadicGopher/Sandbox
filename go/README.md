@@ -1,6 +1,6 @@
 * **go.dev**
   * [**Learn**](https://go.dev/learn)
-  * [**Tutorials**](https://go.dev/doc/tutorial)
+  * [**Docs**](https://go.dev/doc)
 * [**GoByExample**](https://gobyexample.com/)
 * [**maxence-charriere/go-app**](https://github.com/maxence-charriere/go-app)
   * [**goapp-github-pages**](https://github.com/maxence-charriere/goapp-github-pages)
