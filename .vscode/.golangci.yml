@@ -1,4 +1,4 @@
-# Place in $HOME
+# https://golangci-lint.run/usage/configuration
 linters:
     enable:
         - errcheck    # Checks for unchecked errors
