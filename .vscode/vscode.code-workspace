@@ -15,7 +15,7 @@
 		"background.editor": {
 			"style": {
 				"useFront": false,
-				"opacity": 0.45
+				"opacity": 0.2
 			},
 			"images": [
 				"file:///E:/My%20Drive/media/vsCode/dancing-gopher.gif"
