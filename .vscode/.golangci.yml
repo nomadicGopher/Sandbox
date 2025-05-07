@@ -1,13 +1,13 @@
 # Place in $HOME
 linters:
     enable:
-        - errcheck  # Checks for unchecked errors
-        - gofumpt   # Formats Go code
-        - goimports # Automatically adds missing imports
-        - golines   # Formats Go code to avoid long lines
+        - errcheck    # Checks for unchecked errors
+        - gofumpt     # Formats Go code
+        - goimports   # Automatically adds missing imports
+        - golines     # Formats Go code to avoid long lines
         - staticcheck # Static analysis tool
-        - govet     # Reports potential errors
+        - govet       # Reports potential errors
 
 run:
-    timeout: 5m  # Timeout for the linter run
+    timeout: 5m   # Timeout for the linter run
     color: always # Always use color in output
