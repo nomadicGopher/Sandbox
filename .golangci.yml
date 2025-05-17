@@ -1,0 +1,32 @@
+# https://golangci-lint.run/usage/configuration
+
+# version: "2"
+
+# formatters:
+#     enable:
+#         - gofumpt # A stricter version of gofmt with additional formatting rules.
+#         - goimports # Formats Go code and manages imports.
+#         - golines # Formats Go code to ensure line length is within limits.
+#     disable:
+#         - gci # Organizes Go imports, ensuring that import statements are sorted and grouped correctly.
+#         - gofmt # Formats Go code according to standard formatting rules, ensuring consistent code style across the project.
+#     settings:
+#         golines:
+#             max-len: 120 # Default: 100
+
+linters:
+    enable:
+        - errcheck # Checks for unhandled errors in the code.
+        - govet # A vet tool that checks for common mistakes in Go code.
+        - staticcheck # A comprehensive linter that checks for various issues in Go code.
+    disable:
+        - gosimple # Detects code that can be simplified, suggesting more straightforward alternatives.
+        - ineffassign # Checks for assignments to variables that are never used, helping to identify unnecessary code.
+        - unused # Detects unused variables, functions, and imports, promoting cleaner and more maintainable code.
+    # settings:
+    #     errcheck:
+    #         check-type-assertions: true # Default: false
+
+# run:
+#     - timeout: 5m
+#     - color: always
