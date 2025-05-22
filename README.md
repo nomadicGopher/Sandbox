@@ -1,8 +1,8 @@
 ## Basic Projects
 **Legend**<!--🟠🔵-->  
-🔴 Not Started / Researching  
-🟡 In Progress  
-🟢 Complete
+> 🔴 Not Started / Researching  
+> 🟡 In Progress  
+> 🟢 Complete
 
 **Directory Structure**
 * **go**
