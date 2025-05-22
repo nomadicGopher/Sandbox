@@ -1,12 +1,13 @@
+## Basic Projects
 **Legend**<!--🟠🔵-->  
 🔴 Not Started / Researching  
 🟡 In Progress  
 🟢 Complete
 
-## Basic Learning Projects
+**Directory Structure**
 * **go**
   * **data-sources**
-    * 🟡 InputFile/X12
+    * 🟡 **InputFile/**X12
     * 🔴 RabbitMQ
     * 🔴 Redis
     * 🔴 sqlite
