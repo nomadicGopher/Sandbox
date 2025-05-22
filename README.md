@@ -1,16 +1,16 @@
 ## Basic Projects
-**Legend**<!--🟠🔵-->  
-> 🔴 Not Started / Researching  
-> 🟡 In Progress  
-> 🟢 Complete
+### Legend <!--🟠🔵-->
+🔴 Not Started / On Hold / Researching  
+🟡 In Progress  
+🟢 Complete
 
-**Directory Structure**
+### Directory Structure
 * **go**
   * **data-sources**
-    * 🟡 **InputFile /** X12
+    * 🟡 **input-file /** X12-ETL
     * 🔴 RabbitMQ
     * 🔴 Redis
-    * 🔴 sqlite
+    * 🔴 [sqlite](https://pkg.go.dev/modernc.org/sqlite)
   * **libraries**
     * 🟢 html-template+htmx
     * 🟢 wasm
