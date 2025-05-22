@@ -60,6 +60,7 @@ func transformData(data data) (transformedData data) {
 	return transformedData
 }
 
+// writeTransformedData writes the transformed data into the transformed file before being imported into a system.
 func writeTransformedData(inFilePath, baseFileName, formattedTimeStamp string, transformedData data) {
 	trasformedFilePath := filepath.Join(filepath.Dir(inFilePath), baseFileName+"_transformed"+formattedTimeStamp+filepath.Ext(inFilePath))
 	trasformedFile, err := os.Create(trasformedFilePath)
@@ -68,9 +69,5 @@ func writeTransformedData(inFilePath, baseFileName, formattedTimeStamp string, t
 	}
 	defer trasformedFile.Close()
 
-	log.Print(transformedData)
-	_, err = trasformedFile.WriteString("Sample data write.") // TODO: Write out transformed data line by line
-	if err != nil {
-		log.Println("Unable to write to Transformed File: ", err)
-	}
+	// TODO: Write out transformed data line by line
 }
