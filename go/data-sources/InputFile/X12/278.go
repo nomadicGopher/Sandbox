@@ -19,6 +19,10 @@ import (
 	"time"
 )
 
+type data struct {
+	Field string `json:"field,omitempty"`
+}
+
 func main() {
 	inFilePath := flag.String("inPath", "./sample278.txt", "Full path to input file.")
 	flag.Parse()
@@ -35,17 +39,38 @@ func main() {
 	}
 	defer logFile.Close()
 
-	trasformedFilePath := filepath.Join(filepath.Dir(*inFilePath), baseFileName+"_transformed"+formattedTimeStamp+filepath.Ext(*inFilePath))
+	data := getInputData()
+
+	transformedData := transformData(data)
+
+	writeTransformedData(*inFilePath, baseFileName, formattedTimeStamp, transformedData)
+
+	os.Exit(0)
+}
+
+// getInputData fetches field data from the input file and loads them into the data struct (representing JSON format).
+func getInputData() (data data) {
+	// TODO
+	return data
+}
+
+// transformData makes sample transformation(s) to the data object.
+func transformData(data data) (transformedData data) {
+	transformedData = data // TODO
+	return transformedData
+}
+
+func writeTransformedData(inFilePath, baseFileName, formattedTimeStamp string, transformedData data) {
+	trasformedFilePath := filepath.Join(filepath.Dir(inFilePath), baseFileName+"_transformed"+formattedTimeStamp+filepath.Ext(inFilePath))
 	trasformedFile, err := os.Create(trasformedFilePath)
 	if err != nil {
 		log.Println("Unable to create Transformed File: ", err)
 	}
 	defer trasformedFile.Close()
 
-	_, err = trasformedFile.WriteString("Hello world!")
+	log.Print(transformedData)
+	_, err = trasformedFile.WriteString("Sample data write.") // TODO: Write out transformed data line by line
 	if err != nil {
 		log.Println("Unable to write to Transformed File: ", err)
 	}
-
-	os.Exit(0)
 }
