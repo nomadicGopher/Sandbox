@@ -23,7 +23,7 @@ func main() {
 	inFilePath := flag.String("inPath", "./sample278.txt", "Full path to input file.")
 	flag.Parse()
 	timeStamp := time.Now()
-	formattedTimeStamp := timeStamp.Format("_2006-01-02_15h-04m-05s")
+	formattedTimeStamp := timeStamp.Format("_2006-01-02_15-04-05")
 
 	baseFileName := filepath.Base(*inFilePath)
 	baseFileName = baseFileName[:len(baseFileName)-len(filepath.Ext(*inFilePath))]
