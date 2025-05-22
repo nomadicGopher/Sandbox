@@ -14,8 +14,6 @@
     * 🟢 html-template+htmx
     * 🟢 wasm
   * **protocols**
-      * 🔴 GraphQL
-      * 🔴 gRPC
       * 🔴 REST_API
   * 🟢 server
 * **ts**
