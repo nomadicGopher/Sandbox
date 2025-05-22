@@ -6,6 +6,7 @@
 ## Basic Learning Projects
 * **go**
   * **data-sources**
+    * 🟡 InputFile/X12
     * 🔴 RabbitMQ
     * 🔴 Redis
     * 🔴 sqlite
