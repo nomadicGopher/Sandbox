@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"log"
 	"os"
@@ -12,7 +13,7 @@ import (
 func getInputData(inFilePath string) (data Transaction278) {
 	inFileData, err := os.ReadFile(inFilePath)
 	if err != nil {
-		log.Fatalf("Unable to open input file: %v", err)
+		log.Fatalf("Unable to open input file: %v\n", err)
 	}
 	segments := strings.Split(string(inFileData), "~")
 	for _, segment := range segments {
@@ -45,11 +46,15 @@ func writeTransformedData(inFilePath, baseFileName, formattedTimeStamp string, t
 	}
 	defer trasformedFile.Close()
 
-	_, err = trasformedFile.WriteString("Hello world!")
+	transformedDataBytes, err := json.MarshalIndent(transformedData, "", "  ")
 	if err != nil {
-		log.Fatalf("Unable to write data to %s: %v", trasformedFilePath, err)
+		log.Fatalln("Unable to marshal data to JSON: ", err)
 	}
-	// TODO: Write data into JSON file
+
+	_, err = trasformedFile.Write(transformedDataBytes)
+	if err != nil {
+		log.Fatalf("Unable to write data to %s: %v\n", trasformedFilePath, err)
+	}
 
 	log.Println("Wrote data to output file at: ", trasformedFilePath)
 }
