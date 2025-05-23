@@ -5,11 +5,24 @@ import (
 	"log"
 	"os"
 	"path/filepath"
+	"strings"
 )
 
 // getInputData fetches field data from the input file and loads them into the data struct (representing JSON format).
 func getInputData(inFilePath string) (data Transaction278) {
-	// TODO
+	inFileData, err := os.ReadFile(inFilePath)
+	if err != nil {
+		log.Fatalf("Unable to open input file: %v", err)
+	}
+	segments := strings.Split(string(inFileData), "~")
+	for _, segment := range segments {
+		segment = strings.TrimSpace(segment)
+		if segment == "" {
+			continue
+		}
+		elements := strings.Split(segment, "*")
+		// TODO: ...process elements
+	}
 
 	log.Println("Loaded input data into memory.")
 	return data
