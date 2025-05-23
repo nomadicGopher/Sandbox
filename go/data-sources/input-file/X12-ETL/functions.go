@@ -293,6 +293,61 @@ func getInputData(inFilePath string) (data Transaction278) {
 				DateTimePeriod:    elements[3],
 			}
 			data.DTP = append(data.DTP, dtp)
+		case "SV2":
+			if len(elements) < 6 {
+				log.Fatalf("Incorrect number of elements found in segment: %q", segment)
+			}
+			sv2 := SV2{
+				ProductOrServiceID:            elements[1],
+				ProcedureModifier:             "",
+				LineItemChargeAmount:          elements[3],
+				UnitOrBasisForMeasurementCode: elements[4],
+				ServiceUnitCount:              elements[5],
+			}
+			if len(elements) > 2 {
+				sv2.ProcedureModifier = elements[2]
+			}
+			data.SV2 = append(data.SV2, sv2)
+		case "PWK":
+			if len(elements) < 3 {
+				log.Fatalf("Incorrect number of elements found in segment: %q", segment)
+			}
+			pwk := PWK{
+				ReportTypeCode:         elements[1],
+				ReportTransmissionCode: elements[2],
+			}
+			if len(elements) > 3 {
+				pwk.ReportCopies = elements[3]
+			}
+			if len(elements) > 7 {
+				pwk.ReportControlNumber = elements[7]
+			}
+			data.PWK = append(data.PWK, pwk)
+		case "GE":
+			if len(elements) != 3 {
+				log.Fatalf("Incorrect number of elements found in segment: %q", segment)
+			}
+			data.GE = GE{
+				NumberOfTransactionSetsIncluded: elements[1],
+				GroupControlNumber:              elements[2],
+			}
+		case "IEA":
+			if len(elements) != 3 {
+				log.Fatalf("Incorrect number of elements found in segment: %q", segment)
+			}
+			data.IEA = IEA{
+				NumberOfIncludedGroups:   elements[1],
+				InterchangeControlNumber: elements[2],
+			}
+		case "HSD":
+			if len(elements) < 3 {
+				log.Fatalf("Incorrect number of elements found in segment: %q", segment)
+			}
+			hsd := HSD{
+				QuantityQualifier: elements[1],
+				Quantity:          elements[2],
+			}
+			data.HSD = append(data.HSD, hsd)
 		default:
 			log.Fatalf("Skipping unknown segment type: %q\n", segment)
 		}
