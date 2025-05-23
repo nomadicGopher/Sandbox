@@ -30,7 +30,7 @@ func main() {
 
 	data := getInputData(*inFilePath)
 
-	transformedData := transformData(data, formattedTimeStamp)
+	transformedData := transformData(data)
 
 	writeTransformedData(*inFilePath, baseFileName, formattedTimeStamp, transformedData)
 
