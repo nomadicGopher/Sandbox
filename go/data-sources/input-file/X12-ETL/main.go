@@ -4,6 +4,7 @@ package main
 
 import (
 	"flag"
+	"io"
 	"log"
 	"os"
 	"path/filepath"
@@ -26,6 +27,8 @@ func main() {
 	}
 	defer logFile.Close()
 	log.Println("Log file created at: ", logFilePath)
+	multiWriter := io.MultiWriter(logFile, os.Stdout)
+	log.SetOutput(multiWriter)
 
 	data := getInputData()
 
