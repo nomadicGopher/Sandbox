@@ -7,10 +7,10 @@
 ### Directory Structure
 * **go**
   * **data-sources**
-    * 🟡 **input-file /** X12-ETL
+    * 🟢 **input-file /** X12-ETL
     * 🔴 RabbitMQ
     * 🔴 Redis
-    * 🔴 [sqlite](https://pkg.go.dev/modernc.org/sqlite)
+    * 🔴 [SQLite](https://pkg.go.dev/modernc.org/sqlite)
   * **libraries**
     * 🟢 html-template+htmx
     * 🟢 wasm
