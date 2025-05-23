@@ -13,19 +13,36 @@ import (
 func getInputData(inFilePath string) (data Transaction278) {
 	inFileData, err := os.ReadFile(inFilePath)
 	if err != nil {
-		log.Fatalf("Unable to open input file: %v\n", err)
+		log.Fatalf("Unable to open input file: %value\n", err)
 	}
 	segments := strings.Split(string(inFileData), "~")
 	for _, segment := range segments {
 		elements := strings.Split(segment, "*")
-
 		switch elements[0] {
 		case "ISA":
-			for i, element := range elements {
-				log.Printf("Segment ISA%02d: %s", i+1, element)
-				// TODO: load into struct field via variadic function?
+			if len(elements) != 17 {
+				log.Fatal("Incorrect number of elements found in segment: ", segment)
+			}
+			data.ISA = ISA{
+				AuthorizationInfoQualifier:  elements[1],
+				AuthorizationInfo:           elements[2],
+				SecurityInfoQualifier:       elements[3],
+				SecurityInfo:                elements[4],
+				InterchangeIDQualifier1:     elements[5],
+				InterchangeSenderID:         elements[6],
+				InterchangeIDQualifier2:     elements[7],
+				InterchangeReceiverID:       elements[8],
+				InterchangeDate:             elements[9],
+				InterchangeTime:             elements[10],
+				InterchangeControlStandards: elements[11],
+				InterchangeControlVersion:   elements[12],
+				InterchangeControlNumber:    elements[13],
+				AcknowledgmentRequested:     elements[14],
+				UsageIndicator:              elements[15],
+				ComponentElementSeparator:   elements[16],
 			}
 		default:
+			log.Fatalln("Unknown segment type identified: ", segment)
 		}
 	}
 
@@ -59,7 +76,7 @@ func writeTransformedData(inFilePath, baseFileName, formattedTimeStamp string, t
 
 	_, err = trasformedFile.Write(transformedDataBytes)
 	if err != nil {
-		log.Fatalf("Unable to write data to %s: %v\n", trasformedFilePath, err)
+		log.Fatalf("Unable to write data to %s: %value\n", trasformedFilePath, err)
 	}
 
 	log.Println("Wrote data to output file at: ", trasformedFilePath)
