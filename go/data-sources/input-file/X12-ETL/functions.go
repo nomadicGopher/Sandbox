@@ -294,18 +294,21 @@ func getInputData(inFilePath string) (data Transaction278) {
 			}
 			data.DTP = append(data.DTP, dtp)
 		case "SV2":
+			// SV2: SV2*ProductOrServiceID+ProcedureModifier+...*LineItemChargeAmount*UnitOrBasisForMeasurementCode*ServiceUnitCount
 			if len(elements) < 6 {
 				log.Fatalf("Incorrect number of elements found in segment: %q", segment)
 			}
+			// Split the first data element (elements[1]) by '+'
+			sv2Fields := strings.Split(elements[1], "+")
 			sv2 := SV2{
-				ProductOrServiceID:            elements[1],
+				ProductOrServiceID:            sv2Fields[0],
 				ProcedureModifier:             "",
 				LineItemChargeAmount:          elements[3],
 				UnitOrBasisForMeasurementCode: elements[4],
 				ServiceUnitCount:              elements[5],
 			}
-			if len(elements) > 2 {
-				sv2.ProcedureModifier = elements[2]
+			if len(sv2Fields) > 1 {
+				sv2.ProcedureModifier = sv2Fields[1]
 			}
 			data.SV2 = append(data.SV2, sv2)
 		case "PWK":
