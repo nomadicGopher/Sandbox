@@ -22,9 +22,10 @@ func main() {
 	logFilePath := filepath.Join(filepath.Dir(*inFilePath), baseFileName+formattedTimeStamp+".log")
 	logFile, err := os.Create(logFilePath)
 	if err != nil {
-		log.Println("Unable to create Log File: ", err)
+		log.Fatalln("Unable to create Log File: ", err)
 	}
 	defer logFile.Close()
+	log.Println("Log file created at: ", logFilePath)
 
 	data := getInputData()
 

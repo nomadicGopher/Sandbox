@@ -30,10 +30,14 @@ func writeTransformedData(inFilePath, baseFileName, formattedTimeStamp string, t
 	trasformedFilePath := filepath.Join(filepath.Dir(inFilePath), baseFileName+"_transformed"+formattedTimeStamp+".json")
 	trasformedFile, err := os.Create(trasformedFilePath)
 	if err != nil {
-		log.Println("Unable to create Transformed File: ", err)
+		log.Fatalln("Unable to create Transformed File: ", err)
 	}
 	defer trasformedFile.Close()
 
-	// TODO: Write out transformed data line by line
-	log.Println("Transformed data written to JSON file.")
+	_, err = trasformedFile.WriteString("Hello world!")
+	if err != nil {
+		log.Fatalf("Unable to write data to %s: %v", trasformedFilePath, err)
+	}
+
+	log.Println("Wrote data to output file at: ", trasformedFilePath)
 }
