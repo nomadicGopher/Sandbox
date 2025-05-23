@@ -19,8 +19,14 @@ func getInputData(inFilePath string) (data Transaction278) {
 	for _, segment := range segments {
 		elements := strings.Split(segment, "*")
 
-		// TODO: Loop through each segments index[0], if it begins with Semgement identifier (ISA for example), then load each element into the ISA struct fields (even if they are empty).
-		//! Tricky: Consider dependent loops
+		switch elements[0] {
+		case "ISA":
+			for i, element := range elements {
+				log.Printf("Segment ISA %02d: %s", i+1, element)
+				// TODO: load into struct field via variadic function?
+			}
+		default:
+		}
 	}
 
 	log.Println("Loaded input data into memory.")
