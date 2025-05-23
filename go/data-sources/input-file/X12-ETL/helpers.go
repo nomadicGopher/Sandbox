@@ -8,7 +8,7 @@ import (
 )
 
 // getInputData fetches field data from the input file and loads them into the data struct (representing JSON format).
-func getInputData() (data Transaction278) {
+func getInputData(inFilePath string) (data Transaction278) {
 	// TODO
 
 	log.Println("Loaded input data into memory.")

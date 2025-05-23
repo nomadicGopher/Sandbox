@@ -28,7 +28,7 @@ func main() {
 	multiWriter := io.MultiWriter(logFile, os.Stdout)
 	log.SetOutput(multiWriter)
 
-	data := getInputData()
+	data := getInputData(*inFilePath)
 
 	transformedData := transformData(data, formattedTimeStamp)
 
