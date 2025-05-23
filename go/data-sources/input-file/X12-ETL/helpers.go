@@ -16,12 +16,10 @@ func getInputData(inFilePath string) (data Transaction278) {
 	}
 	segments := strings.Split(string(inFileData), "~")
 	for _, segment := range segments {
-		segment = strings.TrimSpace(segment)
-		if segment == "" {
-			continue
-		}
 		elements := strings.Split(segment, "*")
-		// TODO: ...process elements
+
+		// TODO: Loop through each segments index[0], if it begins with Semgement identifier (ISA for example), then load each element into the ISA struct fields (even if they are empty).
+		//! Tricky: Consider dependent loops
 	}
 
 	log.Println("Loaded input data into memory.")
@@ -51,6 +49,7 @@ func writeTransformedData(inFilePath, baseFileName, formattedTimeStamp string, t
 	if err != nil {
 		log.Fatalf("Unable to write data to %s: %v", trasformedFilePath, err)
 	}
+	// TODO: Write data into JSON file
 
 	log.Println("Wrote data to output file at: ", trasformedFilePath)
 }
