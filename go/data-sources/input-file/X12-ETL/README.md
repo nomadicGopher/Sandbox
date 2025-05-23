@@ -8,6 +8,6 @@ The purpose of this project is to serve as an example of how to read 278 data in
 * `/vscode/tasks.json`: Configuration to clean up test files, which is run as part of launch.json.
 * `.vscode/test.sh`: Simpler method of testing without needing to debug (includes test file cleanup).
 * **Sample input file**: `.vscode/hhpcr_x12n278.txt`
-    * _Sourced from the companion guide._
+    * _Sourced from the companion guide & simplified to just the Envelope segments for demonstration purposes (ISA, GS, ST, Sample Transformed Body, SE, GE IEA)._
 * **Log file**: `inputFilePath/baseName + "_" + dateTime + ".log"`
 * **Output file**: `inputFilePath/baseName + "_transformed_" + dateTime + ".json"`
