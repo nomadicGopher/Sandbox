@@ -22,7 +22,7 @@ func getInputData(inFilePath string) (data Transaction278) {
 		switch elements[0] {
 		case "ISA":
 			for i, element := range elements {
-				log.Printf("Segment ISA %02d: %s", i+1, element)
+				log.Printf("Segment ISA%02d: %s", i+1, element)
 				// TODO: load into struct field via variadic function?
 			}
 		default:
