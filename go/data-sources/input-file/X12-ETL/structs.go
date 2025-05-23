@@ -108,12 +108,105 @@ type Transaction278 struct {
 	ISA          ISA    `json:"isa"`
 	GS           GS     `json:"gs"`
 	ST           ST     `json:"st"`
+	BHT          BHT    `json:"bht"`
 	SubmitterHL  HL     `json:"submitter_hl"`
 	ReceiverHL   HL     `json:"receiver_hl"`
 	SubscriberHL HL     `json:"subscriber_hl"`
 	DependentHLs []HL   `json:"dependent_hls,omitempty"`
 	HI           []HI   `json:"hi,omitempty"`
 	UM           []UM   `json:"um,omitempty"`
+	TRN          []TRN  `json:"trn,omitempty"`
+	N3           []N3   `json:"n3,omitempty"`
+	N4           []N4   `json:"n4,omitempty"`
+	PER          []PER  `json:"per,omitempty"`
+	DTP          []DTP  `json:"dtp,omitempty"`
+	SV2          []SV2  `json:"sv2,omitempty"`
+	HSD          []HSD  `json:"hsd,omitempty"`
+	PWK          []PWK  `json:"pwk,omitempty"`
 	SE           SE     `json:"se"`
+	GE           GE     `json:"ge"`
+	IEA          IEA    `json:"iea"`
 	Comment      string `json:"comment,omitempty"`
+}
+
+// In structs.go, add these struct definitions:
+
+// BHT: Beginning of Hierarchical Transaction
+type BHT struct {
+	HierarchicalStructureCode string `json:"hierarchical_structure_code"`     // BHT01
+	TransactionSetPurposeCode string `json:"transaction_set_purpose_code"`    // BHT02
+	ReferenceIdentification   string `json:"reference_identification"`        // BHT03
+	Date                      string `json:"date"`                            // BHT04
+	Time                      string `json:"time"`                            // BHT05
+	TransactionTypeCode       string `json:"transaction_type_code,omitempty"` // BHT06 (optional)
+}
+
+// TRN: Trace Number
+type TRN struct {
+	TraceTypeCode            string `json:"trace_type_code"`                      // TRN01
+	ReferenceIdentification  string `json:"reference_identification"`             // TRN02
+	OriginatingCompanyID     string `json:"originating_company_id,omitempty"`     // TRN03 (optional)
+	ReferenceIdentification2 string `json:"reference_identification_2,omitempty"` // TRN04 (optional)
+}
+
+// N3: Address Information
+type N3 struct {
+	AddressInformation1 string `json:"address_information_1"`           // N301
+	AddressInformation2 string `json:"address_information_2,omitempty"` // N302 (optional)
+}
+
+// N4: Geographic Location
+type N4 struct {
+	CityName        string `json:"city_name"`              // N401
+	StateOrProvince string `json:"state_or_province_code"` // N402
+	PostalCode      string `json:"postal_code"`            // N403
+}
+
+// PER: Administrative Communications Contact
+type PER struct {
+	ContactFunctionCode  string   `json:"contact_function_code"`           // PER01
+	Name                 string   `json:"name,omitempty"`                  // PER02
+	CommunicationNumbers []string `json:"communication_numbers,omitempty"` // PER03-PER10, collect as array
+}
+
+// DTP: Date or Time Period
+type DTP struct {
+	DateTimeQualifier string `json:"date_time_qualifier"` // DTP01
+	FormatQualifier   string `json:"format_qualifier"`    // DTP02
+	DateTimePeriod    string `json:"date_time_period"`    // DTP03
+}
+
+// SV2: Service Line Information
+type SV2 struct {
+	ProductOrServiceID            string `json:"product_or_service_id"`              // SV201
+	ProcedureModifier             string `json:"procedure_modifier,omitempty"`       // SV202 (optional)
+	LineItemChargeAmount          string `json:"line_item_charge_amount"`            // SV203
+	UnitOrBasisForMeasurementCode string `json:"unit_or_basis_for_measurement_code"` // SV204
+	ServiceUnitCount              string `json:"service_unit_count"`                 // SV205
+}
+
+// HSD: Health Care Services Delivery
+type HSD struct {
+	QuantityQualifier string `json:"quantity_qualifier"` // HSD01
+	Quantity          string `json:"quantity"`           // HSD02
+}
+
+// PWK: Paperwork
+type PWK struct {
+	ReportTypeCode         string `json:"report_type_code"`                // PWK01
+	ReportTransmissionCode string `json:"report_transmission_code"`        // PWK02
+	ReportCopies           string `json:"report_copies,omitempty"`         // PWK03 (optional)
+	ReportControlNumber    string `json:"report_control_number,omitempty"` // PWK07 (optional)
+}
+
+// GE: Functional Group Trailer
+type GE struct {
+	NumberOfTransactionSetsIncluded string `json:"number_of_transaction_sets_included"` // GE01
+	GroupControlNumber              string `json:"group_control_number"`                // GE02
+}
+
+// IEA: Interchange Control Trailer
+type IEA struct {
+	NumberOfIncludedGroups   string `json:"number_of_included_groups"`  // IEA01
+	InterchangeControlNumber string `json:"interchange_control_number"` // IEA02
 }

@@ -100,7 +100,6 @@ func getInputData(inFilePath string) (data Transaction278) {
 				hl.HierarchicalParentID = elements[2]
 			}
 			// Assign HL to the correct place based on context or HL01
-			// For demonstration, assign first HL as Submitter, second as Receiver, third as Subscriber, rest as Dependents
 			if data.SubmitterHL.HierarchicalIDNumber == "" {
 				data.SubmitterHL = hl
 			} else if data.ReceiverHL.HierarchicalIDNumber == "" {
@@ -232,6 +231,67 @@ func getInputData(inFilePath string) (data Transaction278) {
 				um.LevelOfServiceCode = elements[8]
 			}
 			data.UM = append(data.UM, um)
+		case "BHT":
+			if len(elements) < 6 {
+				log.Fatalf("Incorrect number of elements found in segment: %q", segment)
+			}
+			data.BHT = BHT{
+				HierarchicalStructureCode: elements[1],
+				TransactionSetPurposeCode: elements[2],
+				ReferenceIdentification:   elements[3],
+				Date:                      elements[4],
+				Time:                      elements[5],
+			}
+			if len(elements) > 6 {
+				data.BHT.TransactionTypeCode = elements[6]
+			}
+		case "TRN":
+			trn := TRN{
+				TraceTypeCode:           elements[1],
+				ReferenceIdentification: elements[2],
+			}
+			if len(elements) > 3 {
+				trn.OriginatingCompanyID = elements[3]
+			}
+			if len(elements) > 4 {
+				trn.ReferenceIdentification2 = elements[4]
+			}
+			// store or append trn as needed
+		case "N3":
+			n3 := N3{
+				AddressInformation1: elements[1],
+			}
+			if len(elements) > 2 {
+				n3.AddressInformation2 = elements[2]
+			}
+			// store or append n3 as needed
+		case "N4":
+			n4 := N4{
+				CityName:        elements[1],
+				StateOrProvince: elements[2],
+				PostalCode:      elements[3],
+			}
+			// store or append n4 as needed
+		case "PER":
+			per := PER{
+				ContactFunctionCode: elements[1],
+			}
+			if len(elements) > 2 {
+				per.Name = elements[2]
+			}
+			if len(elements) > 3 {
+				per.CommunicationNumbers = elements[3:]
+			}
+			// store or append per as needed
+		case "DTP":
+			if len(elements) < 4 {
+				log.Fatalf("Incorrect number of elements found in segment: %q", segment)
+			}
+			dtp := DTP{
+				DateTimeQualifier: elements[1],
+				FormatQualifier:   elements[2],
+				DateTimePeriod:    elements[3],
+			}
 		default:
 			log.Fatalf("Skipping unknown segment type: %q\n", segment)
 		}
