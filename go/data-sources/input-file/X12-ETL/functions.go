@@ -256,7 +256,7 @@ func getInputData(inFilePath string) (data Transaction278) {
 			if len(elements) > 4 {
 				trn.ReferenceIdentification2 = elements[4]
 			}
-			// store or append trn as needed
+			data.TRN = append(data.TRN, trn)
 		case "N3":
 			n3 := N3{
 				AddressInformation1: elements[1],
@@ -264,14 +264,14 @@ func getInputData(inFilePath string) (data Transaction278) {
 			if len(elements) > 2 {
 				n3.AddressInformation2 = elements[2]
 			}
-			// store or append n3 as needed
+			data.N3 = append(data.N3, n3)
 		case "N4":
 			n4 := N4{
 				CityName:        elements[1],
 				StateOrProvince: elements[2],
 				PostalCode:      elements[3],
 			}
-			// store or append n4 as needed
+			data.N4 = append(data.N4, n4)
 		case "PER":
 			per := PER{
 				ContactFunctionCode: elements[1],
@@ -282,7 +282,7 @@ func getInputData(inFilePath string) (data Transaction278) {
 			if len(elements) > 3 {
 				per.CommunicationNumbers = elements[3:]
 			}
-			// store or append per as needed
+			data.PER = append(data.PER, per)
 		case "DTP":
 			if len(elements) < 4 {
 				log.Fatalf("Incorrect number of elements found in segment: %q", segment)
@@ -292,6 +292,7 @@ func getInputData(inFilePath string) (data Transaction278) {
 				FormatQualifier:   elements[2],
 				DateTimePeriod:    elements[3],
 			}
+			data.DTP = append(data.DTP, dtp)
 		default:
 			log.Fatalf("Skipping unknown segment type: %q\n", segment)
 		}
