@@ -18,13 +18,13 @@ func getInputData(inFilePath string) (data Transaction278) {
 	segments := strings.Split(string(inFileData), "~")
 	for _, segment := range segments {
 		segment = strings.TrimSpace(segment)
+
 		if segment == "" {
 			continue
 		}
+
 		elements := strings.Split(segment, "*")
-		if len(elements) == 0 || elements[0] == "" {
-			continue
-		}
+
 		switch elements[0] {
 		case "ISA":
 			if len(elements) != 17 {
@@ -102,7 +102,7 @@ func getInputData(inFilePath string) (data Transaction278) {
 				InterchangeControlNumber: elements[2],
 			}
 		default:
-			log.Fatalf("Skipping unknown segment type: %q\n", segment)
+			log.Fatalf("Found unknown segment type: %q\n", segment)
 		}
 	}
 
