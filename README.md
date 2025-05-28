@@ -1,4 +1,4 @@
-## Basic Projects
+## Basic Projects ( _Source Code_ )
 ### Legend <!--🟠🔵-->
 🔴 Not Started / On Hold / Researching  
 🟡 In Progress  
@@ -7,20 +7,21 @@
 ### Directory Structure
 * **go**
   * **data-sources**
-    * 🟢 **input-file /** X12-ETL
-    * 🔴 RabbitMQ
-    * 🔴 Redis
-    * 🔴 [SQLite](https://pkg.go.dev/modernc.org/sqlite)
+    * 🟢 **input-file /** [X12-ETL](https://github.com/nomadicGopher/Sandbox/tree/main/go/data-sources/input-file/X12-ETL)
+    * 🔴 [RabbitMQ](https://github.com/nomadicGopher/Sandbox/tree/main/go/data-sources/RabbitMQ)
+    * 🔴 [Redis](https://github.com/nomadicGopher/Sandbox/tree/main/go/data-sources/Redis)
+    * 🔴 SQLite ( _pkg.go.dev/modernc.org/sqlite_ )
   * **libraries**
-    * 🟢 html-template+htmx
-    * 🟢 wasm
+    * 🟢 [html-template+htmx](https://github.com/nomadicGopher/Sandbox/tree/main/go/libraries/html-template%2Bhtmx)
+    * 🟢 [wasm](https://github.com/nomadicGopher/Sandbox/tree/main/go/libraries/wasm)
   * **protocols**
-      * 🔴 REST_API
-  * 🟢 server
+      * 🔴 [REST_API](https://github.com/nomadicGopher/Sandbox/tree/main/go/protocols/REST_API)
+  * 🟢 [server](https://github.com/nomadicGopher/Sandbox/tree/main/go/server)
 * **ts**
-  * 🟢 basic
+  * 🟢 [basic](https://github.com/nomadicGopher/Sandbox/tree/main/ts/basic)
 
-## Ongoing Learning Platforms
-* Exercism
-* HackTheBox
-* **ts / angular /** angular-university.io
+## Ongoing Learning & Exercise Platforms ( _Accounts & Source Code_ )
+* [Exercism Account](https://github.com/nomadicGopher/Sandbox/tree/main/Exercism) ( [_Source Code_)](https://github.com/nomadicGopher/Sandbox/tree/main/Exercism) )
+* [HackTheBox Account](https://github.com/nomadicGopher/Sandbox/tree/main/HackTheBox) ( [_Notes / Source Code_](https://github.com/nomadicGopher/Sandbox/tree/main/HackTheBox) )
+* [HackerRank Account](https://hackerrank.com/profile/nomadicGopher)
+* **ts / angular /** [angular-university.io](https://github.com/nomadicGopher/Sandbox/tree/main/ts/angular/angular-university.io) ( _Source Code_ )
