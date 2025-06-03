@@ -28,6 +28,10 @@ func getInputData(inFilePath string) (data X12_278) {
 
 		elements := strings.Split(segment, "*")
 
+		for _, element := range elements {
+			element = strings.TrimSpace(element)
+		}
+
 		switch elements[0] {
 		case "ISA":
 			if len(elements) != 17 {
