@@ -1,0 +1,60 @@
+{
+  "isa": {
+    "authorization_info_qualifier": "00",
+    "authorization_info": " ",
+    "security_info_qualifier": "00",
+    "security_info": " ",
+    "interchange_id_qualifier_1": "ZZ",
+    "interchange_sender_id": "Test HIH ",
+    "interchange_id_qualifier_2": "ZZ",
+    "interchange_receiver_id": "111222333\n",
+    "interchange_date": "150724",
+    "interchange_time": "0817",
+    "interchange_control_standards": "^",
+    "interchange_control_version": "00501",
+    "interchange_control_number": "000001235",
+    "acknowledgment_requested": "0",
+    "usage_indicator": "T",
+    "component_element_separator": "+"
+  },
+  "group_batches": [
+    {
+      "gs": {
+        "functional_id_code": "HI",
+        "application_sender_code": "Test Group 1",
+        "application_receiver_code": "111222333",
+        "date": "20150724",
+        "time": "0817",
+        "group_control_number": "1235",
+        "responsible_agency_code": "X",
+        "version_release_industry_code": "005010X217"
+      },
+      "body": "GroupBatch[0]: Transaction details should begin with an ST segment and end with an SE segment...",
+      "ge": {
+        "number_of_transaction_sets_included": "0",
+        "group_control_number": "1235"
+      }
+    },
+    {
+      "gs": {
+        "functional_id_code": "HI",
+        "application_sender_code": "Test Group 2",
+        "application_receiver_code": "111222333",
+        "date": "20150724",
+        "time": "0817",
+        "group_control_number": "1235",
+        "responsible_agency_code": "X",
+        "version_release_industry_code": "005010X217"
+      },
+      "body": "GroupBatch[1]: Transaction details should begin with an ST segment and end with an SE segment...",
+      "ge": {
+        "number_of_transaction_sets_included": "0",
+        "group_control_number": "1235"
+      }
+    }
+  ],
+  "iea": {
+    "number_of_included_groups": "1",
+    "interchange_control_number": "000001235"
+  }
+}

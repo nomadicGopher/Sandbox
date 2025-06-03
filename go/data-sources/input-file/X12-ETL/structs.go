@@ -1,14 +1,9 @@
 package main
 
-type Transaction278 struct {
-	ISA  ISA    `json:"isa"`
-	GS   GS     `json:"gs"`
-	ST   ST     `json:"st"`
-	BHT  BHT    `json:"bht"`
-	Body string `json:"body,omitempty"`
-	SE   SE     `json:"se"`
-	GE   GE     `json:"ge"`
-	IEA  IEA    `json:"iea"`
+type X12_278 struct {
+	ISA          ISA     `json:"isa"`
+	GroupBatches []Group `json:"group_batches"`
+	IEA          IEA     `json:"iea"`
 }
 
 // ISA/GS Header Segments
@@ -42,31 +37,16 @@ type GS struct {
 	VersionReleaseIndustryCode string `json:"version_release_industry_code"` // GS08
 }
 
-// ST/SE Transaction Set Header/Trailer
-type ST struct {
-	TransactionSetIDCode        string `json:"transaction_set_id_code"`                 // ST01
-	TransactionSetControlNumber string `json:"transaction_set_control_number"`          // ST02
-	ImplementationConventionRef string `json:"implementation_convention_ref,omitempty"` // ST03 (optional)
-}
-
-type BHT struct {
-	HeirarchStructCode  string `json:"heirarch_struct_code"`  // BHT01
-	TSPurposeCode       string `json:"ts_purpose_code"`       // BHT02
-	ReferenceID         string `json:"reference_id"`          // BHT03
-	Date                string `json:"date"`                  // BHT04
-	Time                string `json:"time"`                  // BHT05
-	TransactionTypeCode string `json:"transaction_type_code"` // BHT06
-}
-
-type SE struct {
-	NumberOfIncludedSegments    int    `json:"number_of_included_segments"`    // SE01
-	TransactionSetControlNumber string `json:"transaction_set_control_number"` // SE02
-}
-
 // GE: Functional Group Trailer
 type GE struct {
 	NumberOfTransactionSetsIncluded string `json:"number_of_transaction_sets_included"` // GE01
 	GroupControlNumber              string `json:"group_control_number"`                // GE02
+}
+
+type Group struct {
+	GS   GS     `json:"gs"`
+	Body string `json:"body,omitempty"` // [] ST/SE ...
+	GE   GE     `json:"ge"`
 }
 
 // IEA: Interchange Control Trailer

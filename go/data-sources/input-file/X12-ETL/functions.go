@@ -10,16 +10,19 @@ import (
 )
 
 // getInputData fetches field data from the input file and loads them into the data struct (representing JSON format).
-func getInputData(inFilePath string) (data Transaction278) {
+func getInputData(inFilePath string) (data X12_278) {
 	inFileData, err := os.ReadFile(inFilePath)
 	if err != nil {
 		log.Fatalln("Unable to open input file: ", err)
 	}
 	segments := strings.Split(string(inFileData), "~")
+
+	var currentGroup *Group
+
 	for _, segment := range segments {
 		segment = strings.TrimSpace(segment)
 
-		if segment == "" { // EOF
+		if segment == "" {
 			continue
 		}
 
@@ -30,6 +33,7 @@ func getInputData(inFilePath string) (data Transaction278) {
 			if len(elements) != 17 {
 				log.Fatalf("Incorrect number of elements found in segment: %q", segment)
 			}
+
 			data.ISA = ISA{
 				AuthorizationInfoQualifier:  elements[1],
 				AuthorizationInfo:           elements[2],
@@ -49,66 +53,44 @@ func getInputData(inFilePath string) (data Transaction278) {
 				ComponentElementSeparator:   elements[16],
 			}
 		case "GS":
+			currentGroup = nil
+
 			if len(elements) != 9 {
 				log.Fatalf("Incorrect number of elements found in segment: %q", segment)
 			}
-			data.GS = GS{
-				FunctionalIDCode:           elements[1],
-				ApplicationSenderCode:      elements[2],
-				ApplicationReceiverCode:    elements[3],
-				Date:                       elements[4],
-				Time:                       elements[5],
-				GroupControlNumber:         elements[6],
-				ResponsibleAgencyCode:      elements[7],
-				VersionReleaseIndustryCode: elements[8],
-			}
-		case "ST":
-			// ST03 is optional
-			if len(elements) < 3 || len(elements) > 4 {
-				log.Fatalf("Incorrect number of elements found in segment: %q", segment)
-			}
-			data.ST = ST{
-				TransactionSetIDCode:        elements[1],
-				TransactionSetControlNumber: elements[2],
-			}
-			if len(elements) == 4 {
-				data.ST.ImplementationConventionRef = elements[3]
-			}
-		case "BHT":
-			if len(elements) != 7 {
-				log.Fatalf("Incorrect number of elements found in segment: %q", segment)
-			}
-			data.BHT = BHT{
-				HeirarchStructCode:  elements[1],
-				TSPurposeCode:       elements[2],
-				ReferenceID:         elements[3],
-				Date:                elements[4],
-				Time:                elements[5],
-				TransactionTypeCode: elements[6],
-			}
-		case "SE":
-			if len(elements) != 3 {
-				log.Fatalf("Incorrect number of elements found in segment: %q", segment)
-			}
-			// SE01 is int
-			var numSegments int
-			fmt.Sscanf(elements[1], "%d", &numSegments)
-			data.SE = SE{
-				NumberOfIncludedSegments:    numSegments,
-				TransactionSetControlNumber: elements[2],
+
+			currentGroup = &Group{
+				GS: GS{
+					FunctionalIDCode:           elements[1],
+					ApplicationSenderCode:      elements[2],
+					ApplicationReceiverCode:    elements[3],
+					Date:                       elements[4],
+					Time:                       elements[5],
+					GroupControlNumber:         elements[6],
+					ResponsibleAgencyCode:      elements[7],
+					VersionReleaseIndustryCode: elements[8],
+				},
 			}
 		case "GE":
 			if len(elements) != 3 {
 				log.Fatalf("Incorrect number of elements found in segment: %q", segment)
 			}
-			data.GE = GE{
+
+			if currentGroup == nil {
+				log.Fatalf("GE segment found without matching GS segment: %q", segment)
+			}
+
+			currentGroup.GE = GE{
 				NumberOfTransactionSetsIncluded: elements[1],
 				GroupControlNumber:              elements[2],
 			}
+
+			data.GroupBatches = append(data.GroupBatches, *currentGroup)
 		case "IEA":
 			if len(elements) != 3 {
 				log.Fatalf("Incorrect number of elements found in segment: %q", segment)
 			}
+
 			data.IEA = IEA{
 				NumberOfIncludedGroups:   elements[1],
 				InterchangeControlNumber: elements[2],
@@ -123,17 +105,19 @@ func getInputData(inFilePath string) (data Transaction278) {
 }
 
 // transformData makes a sample data transformation at the end of the data set.
-func transformData(data Transaction278) (transformedData Transaction278) {
+func transformData(data X12_278) (transformedData X12_278) {
 	transformedData = data
 
-	transformedData.Body = "Body of requests goes here... This is a sample transformation."
+	for i := range transformedData.GroupBatches {
+		transformedData.GroupBatches[i].Body = fmt.Sprintf("GroupBatch[%d]: Transaction details should begin with an ST segment and end with an SE segment...", i)
+		log.Printf("Updated transaction body for group[%d].\n", i)
+	}
 
-	log.Println("Transformed data (added content into the body node).")
 	return transformedData
 }
 
 // writeTransformedData writes the transformed data into the transformed JSON file before being imported into a system.
-func writeTransformedData(inFilePath, baseFileName, formattedTimeStamp string, transformedData Transaction278) {
+func writeTransformedData(inFilePath, baseFileName, formattedTimeStamp string, transformedData X12_278) {
 	trasformedFilePath := filepath.Join(filepath.Dir(inFilePath), baseFileName+"_transformed"+formattedTimeStamp+".json")
 	trasformedFile, err := os.Create(trasformedFilePath)
 	if err != nil {
