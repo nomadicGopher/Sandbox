@@ -1,35 +1,47 @@
 #!/bin/bash
 
-TRACK_SLUG="go"
-EXERCISES_FILE="exercises.txt"
+# Define the track you want to download exercises for
+TRACK="go"
 
-echo "Fetching list of Go exercises..."
+# Define the directory where you want to save the exercises
+DOWNLOAD_DIR="$HOME/exercism/$TRACK"
 
-# This command scrapes the exercise slugs from the Exercism website
-# It might break if Exercism changes their website structure.
-# A more robust solution might involve using the Exercism API if available.
-curl -LSs "https://exercism.org/tracks/${TRACK_SLUG}/exercises" | \
-  grep "/tracks/${TRACK_SLUG}/exercises/" | \
-  awk '{print $3}' | \
-  cut -d/ -f5 | \
-  cut -d\" -f1 > "$EXERCISES_FILE"
+echo "Attempting to download all active '$TRACK' exercises to: $DOWNLOAD_DIR"
+echo "Please ensure you have the exercism CLI installed and configured with your API token."
+echo ""
 
-if [ ! -s "$EXERCISES_FILE" ]; then
-  echo "Failed to retrieve exercise list. Please check the curl command and Exercism website structure."
-  exit 1
+# Create the download directory if it doesn't exist
+mkdir -p "$DOWNLOAD_DIR"
+
+# Change to the download directory
+cd "$DOWNLOAD_DIR" || { echo "Error: Could not change to directory $DOWNLOAD_DIR"; exit 1; }
+
+# Get a list of all active exercises for the specified track
+# The `exercism list` command is used, and we filter for the desired track
+# We then extract the exercise slug (e.g., "hello-world", "two-fer")
+# This assumes that `exercism list` output format is consistent.
+echo "Fetching list of active '$TRACK' exercises..."
+EXERCISES=$(exercism list | grep "track:$TRACK" | awk '{print $NF}' | tr -d '()')
+
+if [ -z "$EXERCISES" ]; then
+    echo "No active '$TRACK' exercises found or there was an issue fetching the list."
+    echo "Please check your exercism CLI configuration and internet connection."
+    exit 0
 fi
 
-echo "Downloading exercises for the '$TRACK_SLUG' track..."
-while IFS= read -r exercise_slug; do
-  if [ -n "$exercise_slug" ]; then
-    echo "Downloading: $exercise_slug"
-    exercism download --exercise="$exercise_slug" --track="$TRACK_SLUG"
+echo "Found the following active exercises for '$TRACK':"
+echo "$EXERCISES"
+echo ""
+
+# Loop through each exercise and download it
+for EXERCISE in $EXERCISES; do
+    echo "Downloading '$EXERCISE'..."
+    exercism download --track="$TRACK" --exercise="$EXERCISE"
     if [ $? -ne 0 ]; then
-      echo "Warning: Failed to download $exercise_slug. It might be locked or an error occurred."
+        echo "Warning: Failed to download '$EXERCISE'. Moving to the next exercise."
     fi
-  fi
-done < "$EXERCISES_FILE"
+    echo "-------------------------------------"
+done
 
-echo "Finished attempting to download all exercises."
-
-rm "$EXERCISES_FILE" # Clean up the temporary file
+echo "All active '$TRACK' exercises have been processed."
+echo "You can find them in: $DOWNLOAD_DIR"
