@@ -1,13 +1,13 @@
 {
   "isa": {
     "authorization_info_qualifier": "00",
-    "authorization_info": " ",
+    "authorization_info": "",
     "security_info_qualifier": "00",
-    "security_info": " ",
+    "security_info": "",
     "interchange_id_qualifier_1": "ZZ",
-    "interchange_sender_id": "Test HIH ",
+    "interchange_sender_id": "Test HIH",
     "interchange_id_qualifier_2": "ZZ",
-    "interchange_receiver_id": "111222333\n",
+    "interchange_receiver_id": "111222333",
     "interchange_date": "150724",
     "interchange_time": "0817",
     "interchange_control_standards": "^",

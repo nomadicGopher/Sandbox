@@ -28,8 +28,8 @@ func getInputData(inFilePath string) (data X12_278) {
 
 		elements := strings.Split(segment, "*")
 
-		for _, element := range elements {
-			element = strings.TrimSpace(element)
+		for i := range elements {
+			elements[i] = strings.TrimSpace(elements[i])
 		}
 
 		switch elements[0] {
