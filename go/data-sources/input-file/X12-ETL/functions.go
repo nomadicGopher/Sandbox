@@ -13,13 +13,13 @@ import (
 func getInputData(inFilePath string) (data Transaction278) {
 	inFileData, err := os.ReadFile(inFilePath)
 	if err != nil {
-		log.Fatalf("Unable to open input file: %v\n", err)
+		log.Fatalln("Unable to open input file: ", err)
 	}
 	segments := strings.Split(string(inFileData), "~")
 	for _, segment := range segments {
 		segment = strings.TrimSpace(segment)
 
-		if segment == "" {
+		if segment == "" { // EOF
 			continue
 		}
 
@@ -74,6 +74,18 @@ func getInputData(inFilePath string) (data Transaction278) {
 			if len(elements) == 4 {
 				data.ST.ImplementationConventionRef = elements[3]
 			}
+		case "BHT":
+			if len(elements) != 7 {
+				log.Fatalf("Incorrect number of elements found in segment: %q", segment)
+			}
+			data.BHT = BHT{
+				HeirarchStructCode:  elements[1],
+				TSPurposeCode:       elements[2],
+				ReferenceID:         elements[3],
+				Date:                elements[4],
+				Time:                elements[5],
+				TransactionTypeCode: elements[6],
+			}
 		case "SE":
 			if len(elements) != 3 {
 				log.Fatalf("Incorrect number of elements found in segment: %q", segment)
@@ -116,7 +128,7 @@ func transformData(data Transaction278) (transformedData Transaction278) {
 
 	transformedData.Body = "Body of requests goes here... This is a sample transformation."
 
-	log.Println("Transformed data.")
+	log.Println("Transformed data (added content into the body node).")
 	return transformedData
 }
 
@@ -136,7 +148,7 @@ func writeTransformedData(inFilePath, baseFileName, formattedTimeStamp string, t
 
 	_, err = trasformedFile.Write(transformedDataBytes)
 	if err != nil {
-		log.Fatalf("Unable to write data to %s: %value\n", trasformedFilePath, err)
+		log.Fatalf("Unable to write data to %s: %v\n", trasformedFilePath, err)
 	}
 
 	log.Println("Wrote data to output file at: ", trasformedFilePath)

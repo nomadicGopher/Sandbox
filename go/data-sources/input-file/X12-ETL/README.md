@@ -15,3 +15,5 @@ The purpose of this project is to serve as an example of how to read 278 data in
 ## Documentation Resource(s)
 * **Companion guide sourced from**: [https://www.cms.gov/files/document/esmd-x12n-278-companion-guide.pdf](https://www.cms.gov/files/document/esmd-x12n-278-companion-guide.pdf)
     * _Saved to: `.vscode/esMD X12N 278 Companion Guide AR2024.10.v18.0.pdf`_
+* [**X12 Tools & Resources**](https://github.com/Stedi/awesome-edi)
+* [**Go Library for Struct Validation**](https://github.com/moov-io/x12) (Can make a PR or request for 278 data. Includes 835 & 837 structs.)

@@ -4,6 +4,7 @@ type Transaction278 struct {
 	ISA  ISA    `json:"isa"`
 	GS   GS     `json:"gs"`
 	ST   ST     `json:"st"`
+	BHT  BHT    `json:"bht"`
 	Body string `json:"body,omitempty"`
 	SE   SE     `json:"se"`
 	GE   GE     `json:"ge"`
@@ -46,6 +47,15 @@ type ST struct {
 	TransactionSetIDCode        string `json:"transaction_set_id_code"`                 // ST01
 	TransactionSetControlNumber string `json:"transaction_set_control_number"`          // ST02
 	ImplementationConventionRef string `json:"implementation_convention_ref,omitempty"` // ST03 (optional)
+}
+
+type BHT struct {
+	HeirarchStructCode  string `json:"heirarch_struct_code"`  // BHT01
+	TSPurposeCode       string `json:"ts_purpose_code"`       // BHT02
+	ReferenceID         string `json:"reference_id"`          // BHT03
+	Date                string `json:"date"`                  // BHT04
+	Time                string `json:"time"`                  // BHT05
+	TransactionTypeCode string `json:"transaction_type_code"` // BHT06
 }
 
 type SE struct {

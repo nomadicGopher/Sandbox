@@ -32,6 +32,14 @@
     "transaction_set_control_number": "1235",
     "implementation_convention_ref": "005010X217"
   },
+  "bht": {
+    "heirarch_struct_code": "0019",
+    "ts_purpose_code": "00",
+    "reference_id": "0123",
+    "date": "20040618",
+    "time": "0932",
+    "transaction_type_code": "CH"
+  },
   "body": "Body of requests goes here... This is a sample transformation.",
   "se": {
     "number_of_included_segments": 0,
