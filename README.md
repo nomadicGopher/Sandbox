@@ -14,9 +14,6 @@
 * **go**
   * **data-sources**
     * 🟢 **input-file /** [X12-ETL](https://github.com/nomadicGopher/Sandbox/tree/main/go/data-sources/input-file/X12-ETL)
-    * 🔴 [RabbitMQ](https://github.com/nomadicGopher/Sandbox/tree/main/go/data-sources/RabbitMQ)
-    * 🔴 [Redis](https://github.com/nomadicGopher/Sandbox/tree/main/go/data-sources/Redis)
-    * 🔴 SQLite ( _pkg.go.dev/modernc.org/sqlite_ )
   * **libraries**
     * 🟢 [html-template+htmx](https://github.com/nomadicGopher/Sandbox/tree/main/go/libraries/html-template%2Bhtmx)
     * 🟢 [wasm](https://github.com/nomadicGopher/Sandbox/tree/main/go/libraries/wasm)

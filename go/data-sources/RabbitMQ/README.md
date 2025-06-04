@@ -1,1 +1,0 @@
-[RabbitMQ > Hello World](https://www.rabbitmq.com/tutorials/tutorial-one-go)

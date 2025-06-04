@@ -57,8 +57,6 @@ func getInputData(inFilePath string) (data X12_278) {
 				ComponentElementSeparator:   elements[16],
 			}
 		case "GS":
-			currentGroup = nil
-
 			if len(elements) != 9 {
 				log.Fatalf("Incorrect number of elements found in segment: %q", segment)
 			}
