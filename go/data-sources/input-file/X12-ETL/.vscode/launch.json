@@ -9,7 +9,11 @@
             "request": "launch",
             "mode": "debug",
             "preLaunchTask": "clean-up",
-            "program": "."
+            "program": ".",
+            "args": [
+                "-inPath=\".vscode/hhpcr_x12n278.txt\"",
+                "-log=true"
+            ]
         }
     ]
 }

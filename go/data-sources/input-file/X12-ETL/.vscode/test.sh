@@ -6,4 +6,4 @@ rm -f ./*transformed*
 
 cd ..
 
-go run .
+go run . -inPath=".vscode/hhpcr_x12n278.txt" -log=true

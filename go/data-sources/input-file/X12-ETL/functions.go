@@ -10,10 +10,10 @@ import (
 )
 
 // getInputData fetches field data from the input file and loads them into the data struct (representing JSON format).
-func getInputData(inFilePath string) (data X12_278) {
+func getInputData(inFilePath string) (data X12_278, err error) {
 	inFileData, err := os.ReadFile(inFilePath)
 	if err != nil {
-		log.Fatalln("Unable to open input file: ", err)
+		return data, fmt.Errorf("unable to open input file: %w", err)
 	}
 	segments := strings.Split(string(inFileData), "~")
 
@@ -35,7 +35,7 @@ func getInputData(inFilePath string) (data X12_278) {
 		switch elements[0] {
 		case "ISA":
 			if len(elements) != 17 {
-				log.Fatalf("Incorrect number of elements found in segment: %q", segment)
+				return data, fmt.Errorf("incorrect number of elements found in segment: %q", segment)
 			}
 
 			data.ISA = ISA{
@@ -58,7 +58,7 @@ func getInputData(inFilePath string) (data X12_278) {
 			}
 		case "GS":
 			if len(elements) != 9 {
-				log.Fatalf("Incorrect number of elements found in segment: %q", segment)
+				return data, fmt.Errorf("incorrect number of elements found in segment: %q", segment)
 			}
 
 			currentGroup = &Group{
@@ -75,11 +75,11 @@ func getInputData(inFilePath string) (data X12_278) {
 			}
 		case "GE":
 			if len(elements) != 3 {
-				log.Fatalf("Incorrect number of elements found in segment: %q", segment)
+				return data, fmt.Errorf("incorrect number of elements found in segment: %q", segment)
 			}
 
 			if currentGroup == nil {
-				log.Fatalf("GE segment found without matching GS segment: %q", segment)
+				return data, fmt.Errorf("GE segment found without matching GS segment: %q", segment)
 			}
 
 			currentGroup.GE = GE{
@@ -90,7 +90,7 @@ func getInputData(inFilePath string) (data X12_278) {
 			data.GroupBatches = append(data.GroupBatches, *currentGroup)
 		case "IEA":
 			if len(elements) != 3 {
-				log.Fatalf("Incorrect number of elements found in segment: %q", segment)
+				return data, fmt.Errorf("incorrect number of elements found in segment: %q", segment)
 			}
 
 			data.IEA = IEA{
@@ -98,16 +98,16 @@ func getInputData(inFilePath string) (data X12_278) {
 				InterchangeControlNumber: elements[2],
 			}
 		default:
-			log.Fatalf("Found unknown segment type: %q\n", segment)
+			return data, fmt.Errorf("found unknown segment type: %q", segment)
 		}
 	}
 
 	log.Println("Loaded input data into memory.")
-	return data
+	return data, nil
 }
 
 // transformData makes a sample data transformation at the end of the data set.
-func transformData(data X12_278) (transformedData X12_278) {
+func transformData(data X12_278) (transformedData X12_278, err error) {
 	transformedData = data
 
 	for i := range transformedData.GroupBatches {
@@ -115,27 +115,28 @@ func transformData(data X12_278) (transformedData X12_278) {
 		log.Printf("Updated transaction body for group[%d].\n", i)
 	}
 
-	return transformedData
+	return transformedData, nil
 }
 
 // writeTransformedData writes the transformed data into the transformed JSON file before being imported into a system.
-func writeTransformedData(inFilePath, baseFileName, formattedTimeStamp string, transformedData X12_278) {
+func writeTransformedData(inFilePath, baseFileName, formattedTimeStamp string, transformedData X12_278) error {
 	trasformedFilePath := filepath.Join(filepath.Dir(inFilePath), baseFileName+"_transformed"+formattedTimeStamp+".json")
 	trasformedFile, err := os.Create(trasformedFilePath)
 	if err != nil {
-		log.Fatalln("Unable to create Transformed File: ", err)
+		return fmt.Errorf("unable to create Transformed File: %w", err)
 	}
 	defer trasformedFile.Close()
 
 	transformedDataBytes, err := json.MarshalIndent(transformedData, "", "  ")
 	if err != nil {
-		log.Fatalln("Unable to marshal data to JSON: ", err)
+		return fmt.Errorf("unable to marshal data to JSON: %w", err)
 	}
 
 	_, err = trasformedFile.Write(transformedDataBytes)
 	if err != nil {
-		log.Fatalf("Unable to write data to %s: %v\n", trasformedFilePath, err)
+		return fmt.Errorf("unable to write data to %s: %v", trasformedFilePath, err)
 	}
 
 	log.Println("Wrote data to output file at: ", trasformedFilePath)
+	return nil
 }

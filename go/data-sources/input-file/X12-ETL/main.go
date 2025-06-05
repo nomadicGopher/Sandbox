@@ -10,29 +10,40 @@ import (
 )
 
 func main() {
-	inFilePath := flag.String("inPath", ".vscode/hhpcr_x12n278.txt", "Full path to input file.")
+	inFilePath := flag.String("inPath", "", "Full path to input file.")
+	produceLogFile := flag.Bool("log", false, "Set to true if a log file should be produced.")
 	flag.Parse()
-	timeStamp := time.Now()
-	formattedTimeStamp := timeStamp.Format("_2006-01-02_15-04-05")
 
 	baseFileName := filepath.Base(*inFilePath)
 	baseFileName = baseFileName[:len(baseFileName)-len(filepath.Ext(*inFilePath))]
+	timeStamp := time.Now()
+	formattedTimeStamp := timeStamp.Format("_2006-01-02_15-04-05")
 
-	logFilePath := filepath.Join(filepath.Dir(*inFilePath), baseFileName+formattedTimeStamp+".log")
-	logFile, err := os.Create(logFilePath)
-	if err != nil {
-		log.Fatalln("Unable to create Log File: ", err)
+	if *produceLogFile {
+		logFilePath := filepath.Join(filepath.Dir(*inFilePath), baseFileName+formattedTimeStamp+".log")
+		logFile, err := os.Create(logFilePath)
+		if err != nil {
+			log.Fatalln("Unable to create Log File: ", err)
+		}
+		defer logFile.Close()
+		log.Println("Log file created at: ", logFilePath)
+		multiWriter := io.MultiWriter(logFile, os.Stdout)
+		log.SetOutput(multiWriter)
 	}
-	defer logFile.Close()
-	log.Println("Log file created at: ", logFilePath)
-	multiWriter := io.MultiWriter(logFile, os.Stdout)
-	log.SetOutput(multiWriter)
 
-	data := getInputData(*inFilePath)
+	data, err := getInputData(*inFilePath)
+	if err != nil {
+		log.Fatalln(err)
+	}
 
-	transformedData := transformData(data)
+	transformedData, err := transformData(data)
+	if err != nil {
+		log.Fatalln(err)
+	}
 
-	writeTransformedData(*inFilePath, baseFileName, formattedTimeStamp, transformedData)
+	if err := writeTransformedData(*inFilePath, baseFileName, formattedTimeStamp, transformedData); err != nil {
+		log.Fatalln(err)
+	}
 
 	os.Exit(0)
 }

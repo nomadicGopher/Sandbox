@@ -1,12 +1,21 @@
 package main
 
+// ---------- Hierarchical Structure ----------
 type X12_278 struct {
 	ISA          ISA     `json:"isa"`
 	GroupBatches []Group `json:"group_batches"`
 	IEA          IEA     `json:"iea"`
 }
 
-// ISA/GS Header Segments
+type Group struct {
+	GS   GS     `json:"gs"`
+	Body string `json:"body,omitempty"` // [] ST/SE ...
+	GE   GE     `json:"ge"`
+}
+
+// ---------- Low Level Segments ----------
+
+// ISA: Header Segment
 type ISA struct {
 	AuthorizationInfoQualifier  string `json:"authorization_info_qualifier"`  // ISA01
 	AuthorizationInfo           string `json:"authorization_info"`            // ISA02
@@ -26,6 +35,7 @@ type ISA struct {
 	ComponentElementSeparator   string `json:"component_element_separator"`   // ISA16
 }
 
+// GS: Functional Group Header
 type GS struct {
 	FunctionalIDCode           string `json:"functional_id_code"`            // GS01
 	ApplicationSenderCode      string `json:"application_sender_code"`       // GS02
@@ -41,12 +51,6 @@ type GS struct {
 type GE struct {
 	NumberOfTransactionSetsIncluded string `json:"number_of_transaction_sets_included"` // GE01
 	GroupControlNumber              string `json:"group_control_number"`                // GE02
-}
-
-type Group struct {
-	GS   GS     `json:"gs"`
-	Body string `json:"body,omitempty"` // [] ST/SE ...
-	GE   GE     `json:"ge"`
 }
 
 // IEA: Interchange Control Trailer
