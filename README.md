@@ -2,7 +2,7 @@
 * [Exercism Account](https://github.com/nomadicGopher/Sandbox/tree/main/Exercism) ( [_Source Code_)](https://github.com/nomadicGopher/Sandbox/tree/main/Exercism) )
 * [HackTheBox Account](https://github.com/nomadicGopher/Sandbox/tree/main/HackTheBox) ( [_Notes / Source Code_](https://github.com/nomadicGopher/Sandbox/tree/main/HackTheBox) )
 * [HackerRank Account](https://hackerrank.com/profile/nomadicGopher)
-* **ts / angular /** [angular-university.io](https://github.com/nomadicGopher/Sandbox/tree/main/ts/angular/angular-university.io) ( _Source Code_ )
+* **ts / angular /** angular-university.io ( [_Source Code_](https://github.com/nomadicGopher/Sandbox/tree/main/ts/angular/angular-university.io) )
 
 ## Basic Projects ( _Source Code_ )
 ### Legend <!--🟠🟡-->
