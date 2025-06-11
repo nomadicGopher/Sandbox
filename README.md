@@ -1,16 +1,16 @@
-## Ongoing Learning & Exercise Platforms ( _Accounts & Source Code_ )
+## Learning & Exercise Platforms
 * [Exercism Account](https://github.com/nomadicGopher/Sandbox/tree/main/Exercism) ( [_Source Code_)](https://github.com/nomadicGopher/Sandbox/tree/main/Exercism) )
-* [HackTheBox Account](https://github.com/nomadicGopher/Sandbox/tree/main/HackTheBox) ( [_Notes / Source Code_](https://github.com/nomadicGopher/Sandbox/tree/main/HackTheBox) )
+* [HackTheBox Account](https://github.com/nomadicGopher/Sandbox/tree/main/HackTheBox) ( [_Notes_](https://github.com/nomadicGopher/Sandbox/tree/main/HackTheBox) )
 * [HackerRank Account](https://hackerrank.com/profile/nomadicGopher)
 * **ts / angular /** angular-university.io ( [_Source Code_](https://github.com/nomadicGopher/Sandbox/tree/main/ts/angular/angular-university.io) )
 
-## Basic Projects ( _Source Code_ )
+## Introductory Projects
 ### Legend <!--🟠🟡-->
 🔴 Not Started / On Hold / Researching  
 🔵 In Progress  
 🟢 Complete
 
-### Directory Structure
+### Source Code Directory Structure
 * **go**
   * **data-sources**
     * 🟢 **input-file /** [X12-ETL](https://github.com/nomadicGopher/Sandbox/tree/main/go/data-sources/input-file/X12-ETL)
