@@ -1,6 +1,6 @@
 ## Learning & Exercise Platforms
 * [Exercism Account](https://github.com/nomadicGopher/Sandbox/tree/main/Exercism) ( [_Source Code_)](https://github.com/nomadicGopher/Sandbox/tree/main/Exercism) )
-* [HackTheBox Account](https://github.com/nomadicGopher/Sandbox/tree/main/HackTheBox) ( [_Notes_](https://github.com/nomadicGopher/Sandbox/tree/main/HackTheBox) )
+* [HackTheBox Account](https://app.hackthebox.com/users/2141921) ( [_Notes_](https://github.com/nomadicGopher/Sandbox/tree/main/HackTheBox) )
 * [HackerRank Account](https://hackerrank.com/profile/nomadicGopher)
 * **ts / angular /** angular-university.io ( [_Source Code_](https://github.com/nomadicGopher/Sandbox/tree/main/ts/angular/angular-university.io) )
 
