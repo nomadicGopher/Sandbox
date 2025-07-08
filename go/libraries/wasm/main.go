@@ -1,3 +1,8 @@
+/*
+	"GOARCH": "wasm",
+	"GOOS": "js"
+*/
+
 package main
 
 import (

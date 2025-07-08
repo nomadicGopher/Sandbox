@@ -3,13 +3,11 @@
 package main
 
 import (
-	"flag"
 	"fmt"
 	"html/template"
 	"log"
 	"net/http"
 	"os"
-	"strconv"
 )
 
 type Window struct {
@@ -39,37 +37,11 @@ func setHandlers() {
 	})
 }
 
-func convertPortsToStrings(httpsPort *uint, httpPort *uint) (httpsPortStr string, httpPortStr string) {
-	httpsPortStr = strconv.Itoa(int(*httpsPort))
-	httpPortStr = strconv.Itoa(int(*httpPort))
-	return
-}
-
-func startServer(ssl bool, httpsPortStr, httpPortStr, certFile, keyFile string) {
-	if ssl {
-		fmt.Println("HTTPS server starting at https://localhost:" + httpsPortStr)
-		if err := http.ListenAndServeTLS(":"+httpsPortStr, certFile, keyFile, nil); err != nil {
-			log.Fatalf("Error starting HTTPS server: %v", err)
-		}
-	} else {
-		fmt.Println("HTTP server starting at http://localhost:" + httpPortStr)
-		if err := http.ListenAndServe(":"+httpPortStr, nil); err != nil {
-			log.Fatalf("Error starting HTTP server: %v", err)
-		}
-	}
-}
-
 func main() {
-	ssl := flag.Bool("ssl", false, "Enable/disable SSL layer for the server.")
-	certFile := flag.String("cert", "server.crt", "Path to the SSL certificate file.")
-	keyFile := flag.String("key", "server.key", "Path to the SSL key file.")
-	httpsPort := flag.Uint("https", 8443, "Port to serve over for HTTPS server.")
-	httpPort := flag.Uint("http", 8080, "Port to serve over for HTTP server.")
-	flag.Parse()
-
 	setHandlers()
 
-	httpsPortStr, httpPortStr := convertPortsToStrings(httpsPort, httpPort)
-
-	startServer(*ssl, httpsPortStr, httpPortStr, *certFile, *keyFile)
+	fmt.Println("HTTP server starting at http://localhost:8080")
+	if err := http.ListenAndServe(":8080", nil); err != nil {
+		log.Fatalf("Error starting HTTP server: %v", err)
+	}
 }
