@@ -1,4 +1,0 @@
-* Use `go run .` to run all files in current dir
-    * Add `go run -race .` to leverage a race detector
-* **Variadic functions (parameters)** like sample(nums ...int) allow functions to accept any number of arguments of a specified type. You can call such functions with individual values (e.g., sample(item1, item2)) or by expanding a slice using ... (e.g., sample(slice...)). The ... is necessary to satisfy the variadic parameter when passing a slice. This is different from when the function is expecting a slice, like sample(nums []int), where you simply pass the slice (e.g., sample(slice)).
-    
