@@ -1,11 +1,5 @@
 package unitTesting
 
-func AddTwoNumbers(a, b int) int {
-	return a + b
-}
-
-// ------------------------------------------
-
 type Restaurant struct {
 	Name    string
 	Cuisine string
