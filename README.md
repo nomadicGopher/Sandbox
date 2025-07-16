@@ -24,11 +24,7 @@
       * ⚫ [REST_API](https://github.com/nomadicGopher/Sandbox/tree/main/go/protocols/REST_API)
   * 🟢 [server](https://github.com/nomadicGopher/Sandbox/tree/main/go/server)
   * 🟢 [unitTesting](https://github.com/nomadicGopher/Sandbox/tree/main/go/unitTesting)
-  * ⚫ [.golangci.yml](https://github.com/nomadicGopher/Sandbox/tree/main/go/.golangci.yml)
 * **ts**
   * 🟢 [basic](https://github.com/nomadicGopher/Sandbox/tree/main/ts/basic)
   * **angular**
     * ⚫ [angular-university.io](https://github.com/nomadicGopher/Sandbox/tree/main/ts/angular/angular-university.io)
-
-## Resources
-* [Jetson Orin Nano - AI Lab](https://www.jetson-ai-lab.com/initial_setup_jon.html)
