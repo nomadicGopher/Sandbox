@@ -16,8 +16,6 @@
 * **go**
   * **data-sources**
     * 🟢 **input-file /** [X12-ETL](https://github.com/nomadicGopher/Sandbox/tree/main/go/data-sources/input-file/X12-ETL)
-    * 🟠 MongoDB
-    * 🟠 Khafka
   * **libraries**
     * 🟢 [html-template+htmx](https://github.com/nomadicGopher/Sandbox/tree/main/go/libraries/html-template%2Bhtmx)
     * 🟢 [wasm](https://github.com/nomadicGopher/Sandbox/tree/main/go/libraries/wasm)
@@ -27,5 +25,3 @@
   * 🟢 [unitTesting](https://github.com/nomadicGopher/Sandbox/tree/main/go/unitTesting)
 * **ts**
   * 🟢 [basic](https://github.com/nomadicGopher/Sandbox/tree/main/ts/basic)
-  * **angular**
-    * ⚫ [angular-university.io](https://github.com/nomadicGopher/Sandbox/tree/main/ts/angular/angular-university.io)
