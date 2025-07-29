@@ -24,4 +24,5 @@
   * 🟢 [server](https://github.com/nomadicGopher/Sandbox/tree/main/go/server)
   * 🟢 [unitTesting](https://github.com/nomadicGopher/Sandbox/tree/main/go/unitTesting)
 * **ts**
+  * 🟢 [angular](https://github.com/nomadicGopher/Sandbox/tree/main/ts/angular)
   * 🟢 [basic](https://github.com/nomadicGopher/Sandbox/tree/main/ts/basic)
