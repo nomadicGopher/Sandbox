@@ -1,9 +1,3 @@
-<!--## Third Party Accounts
-* [Exercism Account](https://exercism.org/profiles/nomadicGopher) ( [_Source Code_)](https://github.com/nomadicGopher/Sandbox/tree/main/Exercism) )
-* [HackTheBox Account](https://app.hackthebox.com/users/2141921) ( [_Source Code_](https://github.com/nomadicGopher/Sandbox/tree/main/HackTheBox) )
-* [HackerRank Account](https://hackerrank.com/profile/nomadicGopher)
-* [Advent of Code](https://adventofcode.com) ( [_Source Code_]() )-->
-
 ## Introductory Projects
 ### Legend <!--🟡⚪⚠️-->
 🔴 Not Started  
