@@ -1,12 +1,11 @@
-## Introductory Projects
-### Legend <!--🟡⚪⚠️-->
+## Legend <!--🟡⚪⚠️-->
 🔴 Not Started  
 🟠 Researching  
 ⚫ On Hold  
 🔵 In Progress  
 🟢 Complete
 
-### Source Code Directory Structure
+## Source Code Directory Structure
 * **go**
   * **data-sources**
     * 🟢 **input-file /** [X12-ETL](https://github.com/nomadicGopher/Sandbox/tree/main/go/data-sources/input-file/X12-ETL)
