@@ -28,6 +28,8 @@ func main() {
 		}
 	}
 
+	fmt.Println("Serving directory: ", *root)
+
 	fs := http.FileServer(http.Dir(*root))
 	http.Handle("/", fs)
 
