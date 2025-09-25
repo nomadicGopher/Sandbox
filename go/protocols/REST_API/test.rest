@@ -1,12 +1,9 @@
 // https://marketplace.visualstudio.com/items/?itemName=humao.rest-client
-
-#INFO https://https://API_ENDPOINT
-GET https://https://API_ENDPOINT
-
-Accept: application/json
+PUT http://localhost:9999/users/1
+#Cookie: key1 = value1
+#Cookie: key2 = value2
 Content-Type: application/json
-#Authorization: Basic ...
-
+#Authorization: Basic key...
 {
   
 }
