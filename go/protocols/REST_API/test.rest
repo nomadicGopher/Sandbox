@@ -5,7 +5,7 @@ GET https://https://API_ENDPOINT
 
 Accept: application/json
 Content-Type: application/json
-Authorization: Basic ...
+#Authorization: Basic ...
 
 {
   
