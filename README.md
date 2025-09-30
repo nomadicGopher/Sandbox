@@ -9,8 +9,7 @@
 * **go**
   * **data-sources**
     * 🟢 **input-file /** [X12-ETL](https://github.com/nomadicGopher/Sandbox/tree/main/go/data-sources/input-file/X12-ETL)
-  * **goroutines**
-    * 🔵 [concurrent-coding.go](https://github.com/nomadicGopher/Sandbox/tree/main/go/goroutines/concurrent-coding.go)
+  * 🔵 [goroutines](https://github.com/nomadicGopher/Sandbox/tree/main/go/goroutines)
   * **libraries**
     * 🟢 [html-template+htmx](https://github.com/nomadicGopher/Sandbox/tree/main/go/libraries/html-template%2Bhtmx)
     * 🟢 [wails2](https://github.com/nomadicGopher/Sandbox/tree/main/go/libraries/wails2)
