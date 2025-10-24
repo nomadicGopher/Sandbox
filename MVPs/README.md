@@ -15,7 +15,9 @@
     * 🟢 [wails2](https://github.com/nomadicGopher/Sandbox/tree/main/go/libraries/wails2)
     * 🟢 [wasm](https://github.com/nomadicGopher/Sandbox/tree/main/go/libraries/wasm)
   * **protocols**
-      * 🔵 [Building a REST_API](https://github.com/nomadicGopher/Sandbox/tree/main/go/protocols/REST_API) - Consider buinding an MCP server from scratch.
+      * REST API
+          * 🔵 [Building a REST_API](https://github.com/nomadicGopher/Sandbox/tree/main/go/protocols/REST_API)
+          * 🟠 Interacting with an MCP server from scratch. Ie. [SonarQube MCP](https://github.com/SonarSource/sonarqube-mcp-server)
       * 🟢 [server](https://github.com/nomadicGopher/Sandbox/tree/main/go/server)
   * 🟢 [unitTesting](https://github.com/nomadicGopher/Sandbox/tree/main/go/unitTesting)
       * 🟠 [Fuzzing](https://go.dev/doc/tutorial/fuzz) - Use unit tests to check how the results of fuzzing react.
