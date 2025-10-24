@@ -15,9 +15,10 @@
     * 🟢 [wails2](https://github.com/nomadicGopher/Sandbox/tree/main/go/libraries/wails2)
     * 🟢 [wasm](https://github.com/nomadicGopher/Sandbox/tree/main/go/libraries/wasm)
   * **protocols**
-      * 🔵 [REST_API](https://github.com/nomadicGopher/Sandbox/tree/main/go/protocols/REST_API)
-  * 🟢 [server](https://github.com/nomadicGopher/Sandbox/tree/main/go/server)
+      * 🔵 [Building a REST_API](https://github.com/nomadicGopher/Sandbox/tree/main/go/protocols/REST_API) - Consider buinding an MCP server from scratch.
+      * 🟢 [server](https://github.com/nomadicGopher/Sandbox/tree/main/go/server)
   * 🟢 [unitTesting](https://github.com/nomadicGopher/Sandbox/tree/main/go/unitTesting)
+      * 🟠 [Fuzzing](https://go.dev/doc/tutorial/fuzz) - Use unit tests to check how the results of fuzzing react.
 * **ts**
   * 🟢 [angular](https://github.com/nomadicGopher/Sandbox/tree/main/ts/angular)
   * 🟢 [basic](https://github.com/nomadicGopher/Sandbox/tree/main/ts/basic)
