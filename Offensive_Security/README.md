@@ -26,8 +26,11 @@
 ## Tools
 
 * [Starred Cybersecurity Resources](https://github.com/stars/nomadicGopher/lists/cybersecurity-resources)
+* Research
+  * [Process Explorer](https://learn.microsoft.com/en-us/sysinternals/downloads/process-explorer) 
 * Reverse Engineering
   * [IDA - Interactive DisAssembler (by hex-rays)](https://hex-rays.com/ida-free)
+  * [Binary Ninja](https://binary.ninja/)
 * SAST (Static Application Security Testing)
   * [CodeQL (by GitHub](https://codeql.github.com/)
   * [SonarQube (by SonarSource)](https://www.sonarsource.com/products/sonarqube/downloads/)
