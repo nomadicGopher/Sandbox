@@ -26,51 +26,31 @@ func NewCache[K comparable, V any](capacity int) *Cache[K, V] {
 	}
 }
 
-// TODO: Put inserts or updates the value for the given key in the cache.
-// If the key already exists, its value is updated and it is marked as most recently used.
-// If the cache is at capacity, the least recently used item is evicted.
+// -----------------------------------------------------------------------------
+
+// Put adds or updates an item in the cache.
 func (c *Cache[K, V]) Put(key K, value V) {
-	if elem, ok := c.store[key]; ok {
-		// Update value and move to front
-		elem.Value.(*entry[K, V]).value = value
-		c.evict.MoveToFront(elem)
-		return
-	}
-
-	// Evict if necessary
-	if len(c.store) >= c.capacity {
-		if backElem := c.evict.Back(); backElem != nil {
-			evictEntry := backElem.Value.(*entry[K, V])
-			delete(c.store, evictEntry.key)
-			c.evict.Remove(backElem)
-		}
-	}
-
-	// Insert new entry
 	newEntry := &entry[K, V]{key: key, value: value}
 	elem := c.evict.PushFront(newEntry)
 	c.store[key] = elem
 }
 
-// TODO: Get retrieves the value associated with the given key from the cache.
-// If the key exists, it is marked as most recently used and its value is returned.
+// Get retrieves an item from the cache by key.
 // Returns the value and true if found, otherwise returns the zero value and false.
 func (c *Cache[K, V]) Get(key K) (V, bool) {
-	var zero V
 	if elem, ok := c.store[key]; ok {
-		c.evict.MoveToFront(elem)
 		return elem.Value.(*entry[K, V]).value, true
 	}
+	var zero V
 	return zero, false
 }
 
-// TODO: Remove deletes the entry associated with the given key from the cache.
-// Returns true if the key was present and removed, otherwise returns false.
+// Remove deletes an item from the cache by key.
+// Returns true if the item was present and removed, otherwise returns false.
 func (c *Cache[K, V]) Remove(key K) bool {
-	if elem, ok := c.store[key]; ok {
-		c.evict.Remove(elem)
+	_, ok := c.store[key]
+	if ok {
 		delete(c.store, key)
-		return true
 	}
-	return false
+	return ok
 }
