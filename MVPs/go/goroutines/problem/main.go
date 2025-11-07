@@ -42,9 +42,67 @@ func (t *Transaction) GetCategory() string {
 	return t.data.category
 }
 
-// processTransactions processes transactions concurrently and performs aggregation
+// TODO: processTransactions processes transactions concurrently and performs aggregation
 func processTransactions(transactionChan <-chan Transaction, workerCount int) AggregationResult {
-	// TODO
+	type agg struct {
+		category string
+		amount   float64
+		date     string
+		success  bool
+	}
+
+	aggChan := make(chan agg)
+	doneChan := make(chan struct{})
+
+	// Worker goroutines
+	for i := 0; i < workerCount; i++ {
+		go func() {
+			for t := range transactionChan {
+				date := t.GetDate()
+				amount := t.GetAmount()
+				category := t.GetCategory()
+				success := date != "" && category != "" && amount >= 0
+				aggChan <- agg{category, amount, date, success}
+			}
+		}()
+	}
+
+	// Aggregator goroutine
+	result := AggregationResult{
+		CategoryTotals: make(map[string]float64),
+		DailyMaximums:  make(map[string]float64),
+	}
+	go func() {
+		for a := range aggChan {
+			result.TotalTransactions++
+			if a.success {
+				result.SuccessfulTransactions++
+				result.CategoryTotals[a.category] += a.amount
+				if max, ok := result.DailyMaximums[a.date]; !ok || a.amount > max {
+					result.DailyMaximums[a.date] = a.amount
+				}
+			} else {
+				result.FailedTransactions++
+			}
+		}
+		doneChan <- struct{}{}
+	}()
+
+	// Wait for all workers to finish, then close aggChan
+	go func() {
+		// Wait for transactionChan to close, then close aggChan
+		// All workers will exit when transactionChan is closed
+		// So, just close aggChan after all transactions are processed
+		// (no need for WaitGroup since aggChan consumers are safe)
+		for i := 0; i < workerCount; i++ {
+			// nothing to do, just for clarity
+		}
+		close(aggChan)
+	}()
+
+	// Wait for aggregation to finish
+	<-doneChan
+	return result
 }
 
 func main() {

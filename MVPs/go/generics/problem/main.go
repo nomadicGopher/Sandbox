@@ -26,6 +26,9 @@ func NewCache[K comparable, V any](capacity int) *Cache[K, V] {
 	}
 }
 
+// TODO: Put inserts or updates the value for the given key in the cache.
+// If the key already exists, its value is updated and it is marked as most recently used.
+// If the cache is at capacity, the least recently used item is evicted.
 func (c *Cache[K, V]) Put(key K, value V) {
 	if elem, ok := c.store[key]; ok {
 		// Update value and move to front
@@ -49,6 +52,9 @@ func (c *Cache[K, V]) Put(key K, value V) {
 	c.store[key] = elem
 }
 
+// TODO: Get retrieves the value associated with the given key from the cache.
+// If the key exists, it is marked as most recently used and its value is returned.
+// Returns the value and true if found, otherwise returns the zero value and false.
 func (c *Cache[K, V]) Get(key K) (V, bool) {
 	var zero V
 	if elem, ok := c.store[key]; ok {
@@ -58,6 +64,8 @@ func (c *Cache[K, V]) Get(key K) (V, bool) {
 	return zero, false
 }
 
+// TODO: Remove deletes the entry associated with the given key from the cache.
+// Returns true if the key was present and removed, otherwise returns false.
 func (c *Cache[K, V]) Remove(key K) bool {
 	if elem, ok := c.store[key]; ok {
 		c.evict.Remove(elem)
