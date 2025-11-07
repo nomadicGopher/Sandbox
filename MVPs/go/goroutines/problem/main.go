@@ -6,6 +6,7 @@ import (
 	"os"
 	"strconv"
 	"strings"
+	"sync"
 	"time"
 )
 
@@ -123,5 +124,47 @@ func main() {
 
 // processTransactions processes transactions concurrently and performs aggregation
 func processTransactions(transactionChan <-chan Transaction, workerCount int) AggregationResult {
-	// TODO
+	dataChan := make(chan TransactionData)
+	var wg sync.WaitGroup
+
+	// Worker Goroutines
+	wg.Add(workerCount)
+	for i := 0; i < workerCount; i++ {
+		go func() {
+			for transaction := range transactionChan {
+				transactionData := TransactionData{
+					date:     transaction.GetDate(),
+					category: transaction.GetCategory(),
+					amount:   transaction.GetAmount(),
+				}
+				dataChan <- transactionData
+			}
+			wg.Done()
+		}()
+	}
+
+	go func() {
+		wg.Wait()
+		close(dataChan)
+	}()
+
+	result := AggregationResult{
+		CategoryTotals: make(map[string]float64),
+		DailyMaximums:  make(map[string]float64),
+	}
+
+	for data := range dataChan {
+		result.TotalTransactions++
+		if data.amount < 0 || data.category == "" || data.date == "" {
+			result.FailedTransactions++
+			continue
+		}
+		result.SuccessfulTransactions++
+		result.CategoryTotals[data.category] += data.amount
+		if max, exists := result.DailyMaximums[data.date]; !exists || data.amount > max {
+			result.DailyMaximums[data.date] = data.amount
+		}
+	}
+
+	return result
 }
