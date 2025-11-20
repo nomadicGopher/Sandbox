@@ -39,13 +39,13 @@
   * Burp Suite Community Edition
     * Learn via [Web Security Academy (by Portswigger)](https://portswigger.net/web-security)
 * IAST (Interactive Application Security Testing)
-  * `TODO: Consider building a lighteright tool that builds a report as the exe runs.`
+  * `TODO: Consider building a lightweight tool that builds a report as the exe runs.`
 
 ## Vulnerable Applications
 
 * [Juice Shop](https://owasp.org/www-project-juice-shop/)
 * [CICD Goat](https://github.com/cider-security-research/cicd-goat)
-* [crackmes.one](https://crackmes.one/crackme/684dab612b84be7ea77438a7) - [Reverse Engineering](https://medium.com/@cy1337/reversing-a-simple-crackme-with-ghidra-decompiler-5dd1b1c3c0ba)
+* [crackmes.one](https://crackmes.one/crackme/684dab612b84be7ea77438a7) [(Reverse Engineering)](https://medium.com/@cy1337/reversing-a-simple-crackme-with-ghidra-decompiler-5dd1b1c3c0ba)
 
 ## Capture The Flag
 
