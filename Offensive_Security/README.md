@@ -52,8 +52,10 @@
 * [Awesome CTF](https://github.com/apsdehal/awesome-ctf)
 * [CTF 101](https://ctf101.org/)
 
----
+## Legal Practice
 
-&nbsp;
+<img width="33.333%" src="Legal_Practice.png">
 
-![TODO](sec.png)
+## Linux Forensic Artifacts
+
+<img width="33.333%" src="Linux_Forensic_Artifacts.jpg">
