@@ -40,6 +40,8 @@
     * Learn via [Web Security Academy (by Portswigger)](https://portswigger.net/web-security)
 * IAST (Interactive Application Security Testing)
   * `TODO: Consider building a lightweight tool that builds a report as the exe runs.`
+* Misc
+  * [Valgrind (memory leaks)](https://valgrind.org/help/projects.html)
 
 ## Vulnerable Applications
 
